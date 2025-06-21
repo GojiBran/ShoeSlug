@@ -191,7 +191,7 @@
       to {
         opacity: 1;
         transform: translateY(0);
-        text-shadow: 0 0 4px #ff71ce, 0 0 10px #01cdfe;
+        text-shadow: 0 0 4px #000, 0 0 10px #000;
       }
     }
 
@@ -208,12 +208,62 @@
     .hero h3 {
       margin-top: 1rem;
       font-size: 1.5rem;
-      color: #fff;
       opacity: 0;
       animation: fadeUp 2s ease forwards 1.5s;
       position: relative;
       z-index: 2;
-      text-shadow: 0 0 6px #05ffa1;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-color-1 {
+      color: #ff71ce;
+      animation: flickerColor1 1.8s infinite;
+      animation-delay: 3.2s;
+      text-shadow: 0 0 6px #000, 0 0 12px #000;
+    }
+
+    .hero-color-2 {
+      color: #01cdfe;
+      animation: flickerColor1 2s infinite;
+      animation-delay: 3.2s;
+      text-shadow: 0 0 6px #000, 0 0 12px #000;
+    }
+
+    .hero-color-3 {
+      color: #05ffa1;
+      animation: flickerColor1 2.2s infinite;
+      animation-delay: 3.2s;
+      text-shadow: 0 0 6px #000, 0 0 12px #000;
+    }
+
+    @keyframes flickerColor1 {
+      0%, 100% {
+        text-shadow: 0 0 6px #ff71ce, 0 0 12px #ff71ce;
+      }
+      50% {
+        text-shadow: 0 0 2px #000;
+      }
+    }
+
+    @keyframes flickerColor2 {
+      0%, 100% {
+        text-shadow: 0 0 6px #01cdfe, 0 0 12px #01cdfe;
+      }
+      50% {
+        text-shadow: 0 0 2px #000;
+      }
+    }
+
+    @keyframes flickerColor3 {
+      0%, 100% {
+        text-shadow: 0 0 6px #05ffa1, 0 0 12px #05ffa1;
+      }
+      50% {
+        text-shadow: 0 0 2px #000;
+      }
     }
 
     @keyframes neonPulse {
@@ -312,7 +362,12 @@
         <span style="--i:5">S</span><span style="--i:6">l</span><span style="--i:7">u</span><span style="--i:8">g</span>
       </h1>
 
-      <h3>🎶 Music. 🎨 Art. ✨ Vibes.</h3>
+      <h3>
+        <span class="hero-color-1">🎶 Music.</span>
+        <span class="hero-color-2">🎨 Art.</span>
+        <span class="hero-color-3">✨ Vibes.</span>
+      </h3>
+
     </div>
     <!-- Particles Background -->
     <div id="particles-js"></div>
