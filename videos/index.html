@@ -86,7 +86,13 @@
     /* Optional: hover glow effect */
     .navbar-nav > li > .nav-link:hover {
       text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
-      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    /* Glowing effect for active nav item */
+    .navbar-nav .nav-link.active {
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor;
+      transform: scale(1.08);
       transition: all 0.3s ease;
     }
 
@@ -228,7 +234,7 @@
           <li class="nav-item"><a class="nav-link active" href="https://shoeslug.netlify.app/videos/">Videos</a></li>
           <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/gallery/">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/about/">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>-->
         </ul>
       </div>
     </div>
