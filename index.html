@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shoe Slug – Music, Art, and Cosmic Vibes</title>
+  <meta name="description" content="Step into the world of Shoe Slug – a cosmic fusion of music, vaporwave art, and vibes beyond reality. Discover tracks, visuals, and more at ShoeSlug.com.">
+  <meta name="keywords" content="Shoe Slug, vaporwave, music artist, art gallery, cosmic vibes, visual art, vaporcore, electronic music, indie art, SlugLuv, Carissa Angelo">
+  <meta name="author" content="Shoe Slug" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://baskinbros.com/shoeslug/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Shoe Slug – Music, Art, and Cosmic Vibes" />
+  <meta property="og:description" content="Discover Shoe Slug: surreal art, dreamy soundscapes, and pure vaporcore energy." />
+  <meta property="og:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+  <meta property="og:url" content="https://baskinbros.com/shoeslug/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shoe Slug – Music, Art, and Cosmic Vibes" />
+  <meta name="twitter:description" content="Listen. Watch. Vibe. Enter the world of Shoe Slug." />
+  <meta name="twitter:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://baskinbros.com/shoeslug/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://baskinbros.com/shoeslug/favicon.svg" />
+  <link rel="shortcut icon" href="https://baskinbros.com/shoeslug/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://baskinbros.com/shoeslug/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
+  <link rel="manifest" href="https://baskinbros.com/shoeslug/site.webmanifest" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 120s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+    .navbar-brand img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .navbar-brand img:hover {
+      transform: rotate(-10deg) scale(1.1);
+      filter: drop-shadow(0 0 4px #ff71ce);
+    }
+
+    .hero {
+      position: relative;
+      padding: 120px 0;
+      text-align: center;
+      background-image: url('https://baskinbros.com/shoeslug/site_bannah.jpg'); /* or your custom path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 113, 206, 0.15), transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(1, 205, 254, 0.15), transparent 60%);
+      animation: shimmerLoop 10s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerLoop {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 0.5; }
+    }
+
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 50%, 54%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 2px #ff71ce,
+          0 0 5px #01cdfe,
+          0 0 8px #05ffa1;
+      }
+      20%, 24%, 52% {
+        opacity: 0.8;
+        text-shadow:
+          0 0 1px #b967ff,
+          0 0 3px #fffb96;
+      }
+      56%, 58%, 60% {
+        opacity: 0.5;
+        text-shadow: none;
+      }
+    }
+
+    @keyframes rainbowFlicker {
+      0%, 100% {
+        opacity: 1;
+        color: hsl(var(--hue), 100%, 70%);
+        filter: drop-shadow(0 0 2px hsl(var(--hue), 100%, 70%)) drop-shadow(0 0 4px hsl(calc(var(--hue) + 60), 100%, 70%));
+      }
+      50% {
+        opacity: 0.5;
+        color: hsl(calc(var(--hue) + 180), 100%, 70%);
+        filter: drop-shadow(0 0 1px hsl(calc(var(--hue) + 180), 100%, 70%));
+      }
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.1); /* adjust for your aesthetic */
+      z-index: 0;
+    }
+
+    #hero-title span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+      animation:
+        slideIn 0.6s ease-out forwards var(--i-delay),
+        rainbowFlicker 3s infinite ease-in-out;
+      --i-delay: calc(var(--i) * 0.1s);
+      animation-delay: var(--i-delay), calc(var(--i) * 0.2s + 3.2s);
+      --hue: calc(var(--i) * 40); /* rainbow offset */
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        text-shadow: 0 0 4px #ff71ce, 0 0 10px #01cdfe;
+      }
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #fff;
+      z-index: 2;
+      position: relative;
+      animation: neonPulse 2s infinite alternate;
+      text-shadow: 0 0 10px #ff71ce, 0 0 20px #01cdfe, 0 0 40px #b967ff;
+    }
+
+    .hero h3 {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #fff;
+      opacity: 0;
+      animation: fadeUp 2s ease forwards 1.5s;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 6px #05ffa1;
+    }
+
+    @keyframes neonPulse {
+      0% { text-shadow: 0 0 6px #ff71ce; }
+      100% { text-shadow: 0 0 18px #ff71ce, 0 0 30px #01cdfe; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+
+    .gradient-text {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 120s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ff71ce;
+      text-shadow:
+        0 0 6px #ff71ce,
+        0 0 12px #01cdfe,
+        0 0 18px #05ffa1;
+    }
+
+    .card-img-top {
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="https://baskinbros.com/shoeslug/">
+      <img src="https://baskinbros.com/shoeslug/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
+      <span>Shoe Slug</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="https://baskinbros.com/shoeslug/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/music/">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/videos/">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/gallery/">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container position-relative z-2">
+      <h1 id="hero-title">
+        <span style="--i:0">S</span><span style="--i:1">h</span><span style="--i:2">o</span><span style="--i:3">e</span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">S</span><span style="--i:6">l</span><span style="--i:7">u</span><span style="--i:8">g</span>
+      </h1>
+
+      <h3>🎶 Music. 🎨 Art. ✨ Vibes.</h3>
+    </div>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+  </section>
+
+  <!-- VIDEO + SPOTIFY SECTION -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-3" style="min-height: 360px;">
+          <iframe 
+            style="border-radius:12px; width:100%; max-width:500px; height:360px;" 
+            src="https://open.spotify.com/embed/track/2DU6b4bcKxGkbcMuRrSXe7?utm_source=generator" 
+            frameborder="0" 
+            allowfullscreen 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="col-12 col-md-6 p-3">
+          <div class="ratio ratio-16x9">
+            <iframe 
+              src="https://www.youtube.com/embed/OVsq4lqn8qY" 
+              title="Dirty Lovers - Shoe Slug" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL LINKS -->
+  <section class="text-center my-5">
+    <h2 class="gradient-text">Connect with Me</h2>
+    <div class="social-icons mt-3">
+      <a href="https://www.youtube.com/@shoeslug" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" target="_blank" title="Spotify"><i class="bi bi-spotify"></i></a>
+      <a href="https://soundcloud.com/shoeslug" target="_blank" title="SoundCloud"><i class="bi bi-soundwave"></i></a>
+      <a href="https://www.instagram.com/shoesluggg/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/RisAngelo333" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+    </div>
+  </section>
+
+  <!-- CARDS SECTION -->
+  <section class="container my-5">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" target="_blank">
+            <img src="https://i.imgur.com/K3YKhCD.jpeg" class="card-img-top" alt="Music Projects">
+          </a>
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title gradient-text">Music Projects</h5>
+              <p class="card-text">From vaporwave vibes to soulful noise, explore sonic experiments and streaming links across all platforms.</p>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+              <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" class="btn btn-outline-light btn-sm w-100">Spotify</a>
+              <a href="https://www.youtube.com/@shoeslug" class="btn btn-outline-light btn-sm w-100">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <a href="https://baskinbros.com/shoeslug/gallery/">
+            <img src="https://i.imgur.com/HYWYz2t.jpeg" class="card-img-top" alt="Art Gallery">
+          </a>
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title gradient-text">Art Gallery</h5>
+              <p class="card-text">Step into a surreal universe of cosmic brushstrokes and dreamworld sketches. Visit the full gallery and get lost in the colors.</p>
+            </div>
+            <a href="https://baskinbros.com/shoeslug/gallery/" class="btn btn-outline-light btn-sm w-100 mt-3">Enter Gallery</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <a href="https://baskinbros.com/shoeslug/about/">
+            <img src="https://i.imgur.com/3VZLgLx.jpeg" class="card-img-top" alt="About Me">
+          </a>
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title gradient-text">About Me</h5>
+              <p class="card-text">Learn more about the slug behind the sound—where I'm from, what inspires me, and the journey so far.</p>
+            </div>
+            <a href="https://baskinbros.com/shoeslug/about/" class="btn btn-outline-light btn-sm w-100 mt-3">Read Bio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Shoe Slug. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 160,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": false
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 600
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "bubble" },
+          "onclick": { "enable": true, "mode": "repulse" },
+          "resize": true
+        },
+        "modes": {
+          "bubble": {
+            "distance": 250,
+            "size": 0,
+            "duration": 2,
+            "opacity": 0,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 400,
+            "duration": 0.4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+    <!-- Idle Mini-Game (Starts After 60 Seconds, Persistent) -->
+    <style>
+      #idle-game {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(17, 17, 17, 0.95);
+        color: #05ffa1;
+        border: 2px solid #05ffa1;
+        padding: 12px 16px;
+        border-radius: 12px;
+        z-index: 9999;
+        display: none;
+        font-family: monospace;
+        animation: pulseIdle 2s infinite;
+        box-shadow: 0 0 10px #05ffa1;
+      }
+
+      #idle-game button {
+        background: #05ffa1;
+        color: #000;
+        border: none;
+        margin-top: 10px;
+        padding: 6px 10px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      @keyframes pulseIdle {
+        0% { box-shadow: 0 0 5px #05ffa1; }
+        50% { box-shadow: 0 0 15px #05ffa1; }
+        100% { box-shadow: 0 0 5px #05ffa1; }
+      }
+    </style>
+
+    <div id="idle-game">
+      <div>✨ <b>Slug Mode Activated</b> ✨</div>
+      <div>Score: <span id="idle-score">0</span></div>
+      <button id="idle-click">+1 Slug</button>
+    </div>
+
+    <script>
+      let idleScore = 0;
+      let idleActivated = false;
+
+      const idleGame = document.getElementById("idle-game");
+      const idleScoreDisplay = document.getElementById("idle-score");
+
+      function showIdleGame() {
+        if (!idleActivated) {
+          idleActivated = true;
+          idleGame.style.display = "block";
+        }
+      }
+
+      document.getElementById("idle-click").onclick = function () {
+        idleScore++;
+        idleScoreDisplay.textContent = idleScore;
+      };
+
+      // Start after 7 seconds
+      setTimeout(showIdleGame, 60000);
+    </script>
+
+</body>
+</html>

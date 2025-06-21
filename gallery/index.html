@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shoe Slug – Art Gallery</title>
+  <meta name="description" content="Explore Shoe Slug's chaotic art gallery. Cosmic themes, pixel glitches, dreamy brushstrokes, and emotional visual noise." />
+  <meta name="keywords" content="Shoe Slug art, vaporwave gallery, visual art, cosmic vibes, surrealism, glitchcore, digital art" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://baskinbros.com/shoeslug/gallery/" />
+
+  <meta property="og:title" content="Shoe Slug – Art Gallery" />
+  <meta property="og:description" content="Step into a dimension of neon brushstrokes and digital dreamscapes." />
+  <meta property="og:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+  <meta property="og:url" content="https://baskinbros.com/shoeslug/gallery/" />
+  <meta property="og:type" content="profile" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shoe Slug – Art Gallery" />
+  <meta name="twitter:description" content="Visuals that melt the matrix. Explore Shoe Slug's art." />
+  <meta name="twitter:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+
+  <link rel="icon" type="image/png" href="https://baskinbros.com/shoeslug/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://baskinbros.com/shoeslug/favicon.svg" />
+  <link rel="shortcut icon" href="https://baskinbros.com/shoeslug/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://baskinbros.com/shoeslug/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
+  <link rel="manifest" href="https://baskinbros.com/shoeslug/site.webmanifest" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 40s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 120s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce; /* fallback for non-webkit */
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+    .navbar-brand img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .navbar-brand img:hover {
+      transform: rotate(-10deg) scale(1.1);
+      filter: drop-shadow(0 0 4px #ff71ce);
+    }
+    .gallery-title {
+      padding: 60px 0 20px;
+      text-align: center;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .gallery-title h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .gallery {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .gallery a {
+      display: block;
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #ff71ce;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gradient text for Connect section title */
+    .gradient-text {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 60s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Social icon style match */
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ff71ce;
+      text-shadow:
+        0 0 6px #ff71ce,
+        0 0 12px #01cdfe,
+        0 0 18px #05ffa1;
+    }
+
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="https://baskinbros.com/shoeslug/">
+      <img src="https://baskinbros.com/shoeslug/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
+      <span>Shoe Slug</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/music/">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/videos/">Videos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="https://baskinbros.com/shoeslug/gallery/">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- GALLERY TITLE -->
+  <div class="gallery-title">
+    <h1>🌸 Shoe Slug's Visual Art Gallery</h1>
+    <p class="lead">Click any image to open fullscreen</p>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="gallery"></div>
+
+  <script>
+    const galleryDiv = document.querySelector('.gallery');
+    for (let i = 0; i <= 30; i++) {
+      const full = `https://baskinbros.com/shoeslug/gallery/images/image${i}.jpg`;
+      const thumb = `https://baskinbros.com/shoeslug/gallery/images/resize/image${i}.jpg`;
+      const alt = `Art ${i + 1}`;
+
+      const a = document.createElement('a');
+      a.href = full;
+      a.setAttribute('data-fslightbox', 'art');
+
+      const img = document.createElement('img');
+      img.src = thumb;
+      img.alt = alt;
+
+      a.appendChild(img);
+      galleryDiv.appendChild(a);
+    }
+  </script>
+
+    <!-- SOCIAL LINKS -->
+    <section class="text-center my-5">
+      <h2>Connect with Me</h2>
+      <div class="social-icons mt-3">
+        <a href="https://www.youtube.com/@shoeslug" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" target="_blank" title="Spotify"><i class="bi bi-spotify"></i></a>
+        <a href="https://soundcloud.com/shoeslug" target="_blank" title="SoundCloud"><i class="bi bi-soundwave"></i></a>
+        <a href="https://www.instagram.com/shoesluggg/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.facebook.com/RisAngelo333" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+    </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Shoe Slug. All rights reserved.</p>
+  </footer>
+
+  <!-- BOOTSTRAP & ICONS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

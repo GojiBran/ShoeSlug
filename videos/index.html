@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shoe Slug – Videos & Visuals</title>
+  <meta name="description" content="Watch official music videos and visual art drops from Shoe Slug. Vibrant vaporwave energy in motion." />
+  <meta name="keywords" content="Shoe Slug videos, music video, vaporwave visuals, art video, YouTube" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://baskinbros.com/shoeslug/videos/" />
+
+  <meta property="og:title" content="Shoe Slug – Videos & Visuals" />
+  <meta property="og:description" content="Official visuals and surreal scenes from the mind of Shoe Slug." />
+  <meta property="og:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+  <meta property="og:url" content="https://baskinbros.com/shoeslug/videos/" />
+  <meta property="og:type" content="video.other" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shoe Slug – Videos & Visuals" />
+  <meta name="twitter:description" content="Cosmic visuals, dreamcore edits, and surreal performance art." />
+  <meta name="twitter:image" content="https://baskinbros.com/shoeslug/og-image.jpg" />
+
+  <link rel="icon" type="image/png" href="https://baskinbros.com/shoeslug/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://baskinbros.com/shoeslug/favicon.svg" />
+  <link rel="shortcut icon" href="https://baskinbros.com/shoeslug/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://baskinbros.com/shoeslug/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
+  <link rel="manifest" href="https://baskinbros.com/shoeslug/site.webmanifest" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 120s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+    .navbar-brand img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .navbar-brand img:hover {
+      transform: rotate(-10deg) scale(1.1);
+      filter: drop-shadow(0 0 4px #ff71ce);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .video-embed {
+      margin: 2rem auto;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .video-wrapper {
+      position: relative;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 113, 206, 0.4);
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+      z-index: 1;
+      position: relative;
+    }
+
+    .vhs-filter {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      mix-blend-mode: overlay;
+      animation: flicker 0.2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.9; }
+      100% { opacity: 0.95; }
+    }
+
+    .vhs-overlay {
+      pointer-events: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://baskinbros.com/shoeslug/assets/vhs-static.gif');
+      opacity: 0.05;
+      z-index: 3;
+      mix-blend-mode: screen;
+    }
+
+    .video-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 4;
+      pointer-events: none;
+      border-radius: 12px;
+      box-shadow:
+        inset 0 0 80px rgba(255, 255, 255, 0.05),
+        inset 0 0 20px rgba(255, 113, 206, 0.1);
+    }
+
+    .gradient-text {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 120s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ff71ce;
+      text-shadow:
+        0 0 6px #ff71ce,
+        0 0 12px #01cdfe,
+        0 0 18px #05ffa1;
+    }
+
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="https://baskinbros.com/shoeslug/">
+        <img src="https://baskinbros.com/shoeslug/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
+        <span>Shoe Slug</span>
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/music/">Music</a></li>
+          <li class="nav-item"><a class="nav-link active" href="https://baskinbros.com/shoeslug/videos/">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/gallery/">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://baskinbros.com/shoeslug/about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- VIDEO EMBEDS -->
+  <div class="container py-5 text-center">
+    <h2 class="gradient-text mb-4">📺 Watch Shoe Slug 🎵</h2>
+
+    <div class="video-embed">
+      <div class="video-wrapper">
+          <div class="vhs-filter"></div>
+          <div class="vhs-overlay"></div>
+          <iframe src="https://www.youtube.com/embed/OVsq4lqn8qY"
+                  title="Dirty Lovers – Shoe Slug"
+                  allowfullscreen
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
+        </div>
+    </div>
+
+    <!-- More videos -->
+    <!--
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Title Here" allowfullscreen></iframe>
+    </div>
+    -->
+  </div>
+
+  <!-- CONNECT WITH ME SECTION -->
+  <section class="text-center my-5">
+    <h2 class="gradient-text">Connect with Me</h2>
+    <div class="social-icons mt-3">
+      <a href="https://www.youtube.com/@shoeslug" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" target="_blank" title="Spotify"><i class="bi bi-spotify"></i></a>
+      <a href="https://soundcloud.com/shoeslug" target="_blank" title="SoundCloud"><i class="bi bi-soundwave"></i></a>
+      <a href="https://www.instagram.com/shoesluggg/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/RisAngelo333" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Shoe Slug. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
