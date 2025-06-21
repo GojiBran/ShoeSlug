@@ -62,6 +62,33 @@
       filter: drop-shadow(0 0 4px #ff71ce);
     }
 
+    /* Assign different colors to each nav item */
+    .navbar-nav > li:nth-child(1) > .nav-link {
+      color: #ff71ce !important; /* Pink – Home */
+    }
+    .navbar-nav > li:nth-child(2) > .nav-link {
+      color: #01cdfe !important; /* Blue – Music */
+    }
+    .navbar-nav > li:nth-child(3) > .nav-link {
+      color: #05ffa1 !important; /* Green – Videos */
+    }
+    .navbar-nav > li:nth-child(4) > .nav-link {
+      color: #b967ff !important; /* Purple – Gallery */
+    }
+    .navbar-nav > li:nth-child(5) > .nav-link {
+      color: #fffb96 !important; /* Yellow – About */
+    }
+    .navbar-nav > li:nth-child(6) > .nav-link {
+      color: #ff9966 !important; /* Orange – Contact */
+    }
+
+    /* Optional: hover glow effect */
+    .navbar-nav > li > .nav-link:hover {
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
     .hero {
       position: relative;
       padding: 120px 0;
