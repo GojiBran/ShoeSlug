@@ -155,6 +155,15 @@
       transition: all 0.3s ease;
     }
 
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
+      50% { box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1; }
+      100% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
+    }
+    .thumbSwiper .swiper-slide-thumb-active img {
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
     /* Gradient text for Connect section title */
     .gradient-text {
       font-weight: bold;
@@ -267,6 +276,9 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <!-- FS Lightbox JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
+
   <!-- Swiper Gallery Script -->
   <script>
     const images = Array.from({ length: 31 }, (_, i) => ({
@@ -281,14 +293,16 @@
     images.forEach(({ full, alt }) => {
       mainWrapper.innerHTML += `
         <div class="swiper-slide">
-          <img src="${full}" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
+          <a data-fslightbox="gallery" href="${full}">
+            <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
+          </a>
         </div>`;
     });
 
     images.forEach(({ thumb, alt }) => {
       thumbWrapper.innerHTML += `
         <div class="swiper-slide" style="width: 100px;">
-          <img src="${thumb}" alt="${alt}" class="img-fluid rounded" style="height: 80px; object-fit: cover;" />
+          <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded" style="height: 80px; object-fit: cover; cursor: pointer;" />
         </div>`;
     });
 
