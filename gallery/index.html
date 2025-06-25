@@ -270,7 +270,7 @@
         <div class="swiper-button-prev"></div>
       </div>
 
-      <div class="row g-3 pt-3 justify-content-center" id="thumbGridWrapper"></div>
+      <div class="row g-2 pt-3 justify-content-center" id="thumbGridWrapper"></div>
 
       <!-- Thumbnail Swiper -->
       <!--<div class="swiper thumbSwiper">
@@ -336,14 +336,15 @@
       col.className = 'col-4 col-sm-3 col-md-2 col-lg-2';
       const thumbId = `thumb-${i}`;
       col.innerHTML = `
-        <a id="${thumbId}" data-fslightbox="gallery" href="${full}" title="${alt}">
+        <a id="${thumbId}" href="${full}" title="${alt}">
           <div class="zoom-thumb">
             <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
           </div>
         </a>`;
       const link = col.querySelector('a');
       link.addEventListener('click', (e) => {
-        e.preventDefault(); // prevents navigation
+        e.preventDefault();       // cancel new tab
+        e.stopPropagation();      // stop lightbox from hijacking it
         mainSwiper.slideToLoop(i, 500);
         setActiveThumb(i);
       });
