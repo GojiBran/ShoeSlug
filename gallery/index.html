@@ -142,7 +142,7 @@
     }
 
     .thumbSwiper {
-      padding-top: 10px;
+      padding: 20px;
     }
 
     .thumbSwiper .swiper-slide-thumb-active img {
@@ -162,6 +162,13 @@
     }
     .thumbSwiper .swiper-slide-thumb-active img {
       animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    .gallery-box {
+      background: rgba(0, 0, 0, 0.4); /* transparent black */
+      box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), 0 0 80px rgba(1, 205, 254, 0.2);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 255, 255, 0.15);
     }
 
     /* Gradient text for Connect section title */
@@ -234,19 +241,21 @@
 
   <!-- Swiper Gallery -->
   <div class="container py-4">
-    <!-- Main Swiper -->
-    <div class="swiper mainSwiper mb-3">
-      <div class="swiper-wrapper" id="mainSwiperWrapper">
-        <!-- Slides injected via JS -->
+    <div class="gallery-box p-4 rounded-4">
+      <!-- Main Swiper -->
+      <div class="swiper mainSwiper mb-3">
+        <div class="swiper-wrapper" id="mainSwiperWrapper">
+          <!-- Slides injected via JS -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
 
-    <!-- Thumbnail Swiper -->
-    <div class="swiper thumbSwiper">
-      <div class="swiper-wrapper" id="thumbSwiperWrapper">
-        <!-- Thumbs injected via JS -->
+      <!-- Thumbnail Swiper -->
+      <div class="swiper thumbSwiper">
+        <div class="swiper-wrapper" id="thumbSwiperWrapper">
+          <!-- Thumbs injected via JS -->
+        </div>
       </div>
     </div>
   </div>
