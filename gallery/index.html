@@ -341,7 +341,9 @@
             <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
           </div>
         </a>`;
-      col.addEventListener('click', () => {
+      const link = col.querySelector('a');
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // prevents navigation
         mainSwiper.slideToLoop(i, 500);
         setActiveThumb(i);
       });
