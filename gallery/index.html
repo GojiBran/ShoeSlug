@@ -160,6 +160,14 @@
       50% { box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1; }
       100% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
     }
+
+    .active-thumb img {
+      box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
     .thumbSwiper .swiper-slide-thumb-active img {
       animation: pulseGlow 2s infinite ease-in-out;
     }
@@ -262,12 +270,14 @@
         <div class="swiper-button-prev"></div>
       </div>
 
+      <div class="row g-3 pt-3 justify-content-center" id="thumbGridWrapper"></div>
+
       <!-- Thumbnail Swiper -->
-      <div class="swiper thumbSwiper">
-        <div class="swiper-wrapper" id="thumbSwiperWrapper">
+      <!--<div class="swiper thumbSwiper">
+        <div class="swiper-wrapper" id="thumbSwiperWrapper">-->
           <!-- Thumbs injected via JS -->
-        </div>
-      </div>
+        <!--</div>
+      </div>-->
     </div>
   </div>
 
@@ -297,7 +307,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- FS Lightbox JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
   <!-- Swiper Gallery Script -->
   <script>
@@ -308,8 +318,9 @@
     }));
 
     const mainWrapper = document.getElementById('mainSwiperWrapper');
-    const thumbWrapper = document.getElementById('thumbSwiperWrapper');
+    const thumbGridWrapper = document.getElementById('thumbGridWrapper');
 
+    // Main image slides
     images.forEach(({ full, alt }) => {
       mainWrapper.innerHTML += `
         <div class="swiper-slide">
@@ -319,20 +330,31 @@
         </div>`;
     });
 
-    images.forEach(({ thumb, alt }) => {
-      thumbWrapper.innerHTML += `
-        <div class="swiper-slide" style="width: 100px;">
-          <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded" style="height: 80px; object-fit: cover; cursor: pointer;" />
-        </div>`;
+    // Grid thumbnails with glow + click sync
+    images.forEach(({ thumb, full, alt }, i) => {
+      const col = document.createElement('div');
+      col.className = 'col-4 col-sm-3 col-md-2 col-lg-2';
+      const thumbId = `thumb-${i}`;
+      col.innerHTML = `
+        <a id="${thumbId}" data-fslightbox="gallery" href="${full}" title="${alt}">
+          <div class="zoom-thumb">
+            <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
+          </div>
+        </a>`;
+      col.addEventListener('click', () => {
+        mainSwiper.slideToLoop(i, 500);
+        setActiveThumb(i);
+      });
+      thumbGridWrapper.appendChild(col);
     });
 
-    const thumbSwiper = new Swiper(".thumbSwiper", {
-      spaceBetween: 10,
-      slidesPerView: "auto",
-      freeMode: true,
-      watchSlidesProgress: true,
-      //centeredSlides: true, // optional
-    });
+    function setActiveThumb(index) {
+      document.querySelectorAll('#thumbGridWrapper a').forEach(a => {
+        a.classList.remove('active-thumb');
+      });
+      const active = document.getElementById(`thumb-${index}`);
+      if (active) active.classList.add('active-thumb');
+    }
 
     const mainSwiper = new Swiper(".mainSwiper", {
       spaceBetween: 10,
@@ -346,10 +368,21 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      thumbs: {
-        swiper: thumbSwiper,
-      },
+      on: {
+        init: function () {
+          setActiveThumb(this.realIndex);
+        },
+        slideChange: function () {
+          setActiveThumb(this.realIndex);
+        }
+      }
     });
+    // Refresh FS Lightbox once all elements are added
+    setTimeout(() => {
+      if (typeof refreshFsLightbox === 'function') {
+        refreshFsLightbox();
+      }
+    }, 100);
   </script>
 </body>
 </html>
