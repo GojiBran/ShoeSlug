@@ -345,11 +345,18 @@ refreshFsLightbox();
         </a>`;
       const link = col.querySelector('a');
       link.addEventListener('click', (e) => {
-        e.preventDefault();       // cancel new tab
-        e.stopPropagation();      // stop lightbox from hijacking it
+        e.preventDefault();
+        e.stopPropagation();
         mainSwiper.slideToLoop(i, 500);
         setActiveThumb(i);
+
+        // Scroll smoothly to the top of the gallery box
+        document.querySelector('.gallery-box')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       });
+
       thumbGridWrapper.appendChild(col);
     });
 
