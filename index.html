@@ -633,6 +633,8 @@
 
       const idleGame = document.getElementById("idle-game");
       const idleScoreDisplay = document.getElementById("idle-score");
+      const idleClickBtn = document.getElementById("idle-click");
+      const exitSlugBtn = document.getElementById("exit-slug");
 
       function showIdleGame() {
         if (!idleActivated) {
@@ -641,22 +643,32 @@
         }
       }
 
-      document.getElementById("idle-click").onclick = function () {
+      idleClickBtn.onclick = function () {
         idleScore++;
         idleScoreDisplay.textContent = idleScore;
       };
 
-      // Start after 7 seconds
-      setTimeout(showIdleGame, 60000);
-    </script>
+      exitSlugBtn.onclick = function () {
+        idleGame.style.opacity = "1";
+        idleGame.style.transition = "opacity 0.5s ease";
+        idleGame.style.opacity = "0";
 
-    <script>
-      document.getElementById("exit-slug").onclick = function () {
-        idleGame.style.display = "none";
-        idleActivated = false;
-        idleScore = 0;
-        idleScoreDisplay.textContent = idleScore;
+        setTimeout(() => {
+          idleGame.style.display = "none";
+          idleActivated = false;
+          idleScore = 0;
+          idleScoreDisplay.textContent = idleScore;
+        }, 500);
       };
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && idleActivated) {
+          exitSlugBtn.click();
+        }
+      });
+
+      // Start after 60 seconds
+      setTimeout(showIdleGame, 60000);
     </script>
 
 </body>
