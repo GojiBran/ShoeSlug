@@ -394,6 +394,14 @@
         }
       }
     });
+    // Arrow key navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        mainSwiper.slideNext();
+      } else if (e.key === 'ArrowLeft') {
+        mainSwiper.slidePrev();
+      }
+    });
   </script>
 </body>
 </html>
