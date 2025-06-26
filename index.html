@@ -496,6 +496,13 @@
     </div>
   </section>
 
+  <div id="idle-game">
+    <div>✨ <b>Slug Mode Activated</b> ✨</div>
+    <div>Score: <span id="idle-score">0</span></div>
+    <button id="idle-click">+1 Slug</button>
+    <button id="exit-slug">Exit</button>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
@@ -620,12 +627,6 @@
       }
     </style>
 
-    <div id="idle-game">
-      <div>✨ <b>Slug Mode Activated</b> ✨</div>
-      <div>Score: <span id="idle-score">0</span></div>
-      <button id="idle-click">+1 Slug</button>
-    </div>
-
     <script>
       let idleScore = 0;
       let idleActivated = false;
@@ -647,6 +648,15 @@
 
       // Start after 7 seconds
       setTimeout(showIdleGame, 60000);
+    </script>
+
+    <script>
+      document.getElementById("exit-slug").onclick = function () {
+        idleGame.style.display = "none";
+        idleActivated = false;
+        idleScore = 0;
+        idleScoreDisplay.textContent = idleScore;
+      };
     </script>
 
 </body>
