@@ -1,9 +1,0 @@
-{
-  "base": "/gallery/images",
-  "categories": [
-    { "folder": "inktober 2024", "count": 31, "desc": "Doodles from Inktober 2024" },
-    { "folder": "glitch", "count": 8, "desc": "Pixel chaos & broken realities" },
-    { "folder": "canvas", "count": 6, "desc": "Paint, brush, and messy emotion" },
-    { "folder": "portraits", "count": 7, "desc": "Faces, moods, and character studies" }
-  ]
-}

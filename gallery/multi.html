@@ -95,12 +95,12 @@
     #catGrid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center; /* auto-center rows */
+      justify-content: center;
       gap: 2rem;
     }
     .cat-card {
-      flex: 1 1 260px;      /* grow/shrink, min width */
-      max-width: 340px;     /* larger cap */
+      flex: 1 1 260px;   /* grow/shrink, min width */
+      max-width: 340px;  /* larger cap */
       background: rgba(0,0,0,0.55);
       border: 2px solid rgba(255,255,255,0.15);
       border-radius: 1.25rem;
@@ -263,18 +263,16 @@
   <script>
     // ========= CONFIG =========
     const BASE = 'https://shoeslug.netlify.app/gallery/images'; // /<folder>/imageN.jpg & /<folder>/resize/imageN.jpg
-    const MANIFEST_URL = 'https://shoeslug.netlify.app/gallery/manifest.json';
 
-    // Fallback categories if manifest is missing
-    const FALLBACK_CATEGORIES = [
-      { folder: 'cosmic',    count: 10, desc: 'Starlit dreamscapes & neon galaxies' },
-      { folder: 'glitch',    count: 8,  desc: 'Pixel chaos & broken realities' },
-      { folder: 'canvas',    count: 6,  desc: 'Paint, brush, and messy emotion' },
-      { folder: 'portraits', count: 7,  desc: 'Faces, moods, and character studies' },
+    // Hardcoded categories (as requested)
+    const CATEGORIES = [
+      { folder: 'inktober-2024', count: 31, desc: '31 days of ink—2024 edition' },
+      { folder: 'category-2',    count: 10, desc: 'A second stream of vibes' },
+      { folder: 'category-3',    count: 10, desc: 'Abstract moods & color play' },
+      { folder: 'category-4',    count: 10, desc: 'Odds, ends, and experiments' }
     ];
 
     // ========= STATE =========
-    let CATEGORIES = [];            // will be filled from manifest or fallback
     let currentFolder = null;
     let mainSwiper = null;
 
@@ -285,7 +283,6 @@
 
     function buildImagesFor(folder) {
       if (folder === 'all') {
-        // flatten all
         return CATEGORIES.flatMap(cat =>
           Array.from({ length: cat.count }, (_, i) => ({
             full:  `${BASE}/${cat.folder}/image${i}.jpg`,
@@ -323,11 +320,7 @@
     }
 
     function initSwiper() {
-      if (!window.Swiper) {
-        console.error('Swiper missing.');
-        return null;
-      }
-      // destroy prior
+      if (!window.Swiper) { console.error('Swiper missing.'); return null; }
       if (mainSwiper && typeof mainSwiper.destroy === 'function') {
         try { mainSwiper.destroy(true, true); } catch {}
       }
@@ -348,7 +341,6 @@
           }
         }
       });
-      // pause autoplay when lightbox opens/resume on close
       document.addEventListener('fsLightboxOpen', () => {
         if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
       });
@@ -397,15 +389,19 @@
       grid.innerHTML = '';
       const frag = document.createDocumentFragment();
 
-      // Add “All”
+      // Random cover for “All”
+      const randFolder = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+      const randIndex  = Math.floor(Math.random() * randFolder.count);
+      const randCover  = `${BASE}/${randFolder.folder}/resize/image${randIndex}.jpg`;
+
       const total = CATEGORIES.reduce((sum,c)=>sum+c.count,0);
       frag.appendChild(buildCard({
         folder: 'all',
         count: total,
         desc: 'Every piece in one endless stream'
-      }, /*cover*/ `${BASE}/${CATEGORIES[0].folder}/resize/image0.jpg`));
+      }, randCover));
 
-      // Real categories
+      // Real categories (covers use image0)
       CATEGORIES.forEach(cat => {
         const cover = `${BASE}/${cat.folder}/resize/image0.jpg`;
         frag.appendChild(buildCard(cat, cover));
@@ -507,28 +503,8 @@
       }
     }
 
-    async function loadManifest() {
-      // Try to fetch /gallery/manifest.json
-      try {
-        const ctrl = new AbortController();
-        const t = setTimeout(() => ctrl.abort(), 4000); // 4s safety timeout
-        const res = await fetch(MANIFEST_URL, { signal: ctrl.signal, cache: 'no-store' });
-        clearTimeout(t);
-        if (!res.ok) throw new Error('Manifest request failed: ' + res.status);
-        const json = await res.json();
-        // Expecting { "categories": [ { folder, count, desc? }, ... ] }
-        if (json && Array.isArray(json.categories) && json.categories.length) {
-          return json.categories;
-        }
-        throw new Error('Manifest missing categories array.');
-      } catch (e) {
-        console.warn('Using fallback categories. Reason:', e.message || e);
-        return FALLBACK_CATEGORIES;
-      }
-    }
-
     // ========= INIT =========
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', () => {
       // Back button
       el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
 
@@ -541,9 +517,6 @@
         if (e.key === 'ArrowRight') mainSwiper.slideNext();
         else if (e.key === 'ArrowLeft') mainSwiper.slidePrev();
       });
-
-      // Load categories (manifest or fallback)
-      CATEGORIES = await loadManifest();
 
       // Build cards
       renderCategoryCards();
