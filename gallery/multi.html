@@ -8,15 +8,18 @@
   <meta name="keywords" content="Shoe Slug art, vaporwave gallery, visual art, cosmic vibes, surrealism, glitchcore, digital art" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://shoeslug.netlify.app/gallery/" />
+
   <meta property="og:title" content="Shoe Slug – Art Gallery" />
   <meta property="og:description" content="Step into a dimension of neon brushstrokes and digital dreamscapes." />
   <meta property="og:image" content="https://shoeslug.netlify.app/og-image.jpg" />
   <meta property="og:url" content="https://shoeslug.netlify.app/gallery/" />
   <meta property="og:type" content="profile" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shoe Slug – Art Gallery" />
   <meta name="twitter:description" content="Visuals that melt the matrix. Explore Shoe Slug's art." />
   <meta name="twitter:image" content="https://shoeslug.netlify.app/og-image.jpg" />
+
   <link rel="icon" type="image/png" href="https://shoeslug.netlify.app/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="https://shoeslug.netlify.app/favicon.svg" />
   <link rel="shortcut icon" href="https://shoeslug.netlify.app/favicon.ico" />
@@ -24,12 +27,13 @@
   <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
   <link rel="manifest" href="https://shoeslug.netlify.app/site.webmanifest" />
 
-  <!-- CSS libs -->
+  <!-- Libs -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
+    /* ====== Site vibe ====== */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -42,6 +46,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     .navbar-brand {
       font-weight: bold;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -59,8 +64,12 @@
     .navbar-nav > li:nth-child(4) > .nav-link { color: #b967ff !important; }
     .navbar-nav > li:nth-child(5) > .nav-link { color: #fffb96 !important; }
     .navbar-nav > li:nth-child(6) > .nav-link { color: #ff9966 !important; }
-    .navbar-nav > li > .nav-link:hover { text-shadow: 0 0 6px currentColor, 0 0 12px currentColor; transition: all .3s ease; }
-    .navbar-nav .nav-link.active { text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor; transition: all .3s ease; }
+    .navbar-nav > li > .nav-link:hover {
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor; transition: all .3s ease;
+    }
+    .navbar-nav .nav-link.active {
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor; transition: all .3s ease;
+    }
 
     .gallery-box {
       background: rgba(0, 0, 0, 0.4);
@@ -81,11 +90,96 @@
       box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1;
       border: 2px solid #fff; border-radius: 8px; animation: pulseGlow 2s infinite ease-in-out;
     }
-    /* Accordion base (navbar-match polish can be added after this is stable) */
-    .accordion-item { border: 2px solid rgba(255, 255, 255, 0.15); border-radius: 1rem; overflow: hidden; }
-    .accordion-button { background: rgba(0,0,0,0.45); color: #fff; }
-    .accordion-button:not(.collapsed) { color: #fffbff; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.1); }
-    .accordion-body { background: transparent; }
+
+    /* ====== Category Cards (auto-centered & larger) ====== */
+    #catGrid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* auto-center rows */
+      gap: 2rem;
+    }
+    .cat-card {
+      flex: 1 1 260px;      /* grow/shrink, min width */
+      max-width: 340px;     /* larger cap */
+      background: rgba(0,0,0,0.55);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(1,205,254,0.15);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px #ff71ce, 0 0 30px rgba(1,205,254,0.4);
+    }
+    .cat-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .cat-body {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+    .cat-title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 60s ease infinite;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+    }
+    .cat-desc {
+      font-size: .95rem;
+      opacity: .85;
+      line-height: 1.25rem;
+    }
+    .cat-count {
+      align-self: flex-end;
+      font-size: .9rem;
+      opacity: .9;
+      padding: .2rem .6rem;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: .5rem;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-flex; align-items: center; gap:.5rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.45);
+      padding: .5rem .9rem; border-radius: .75rem; color: #fff; text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px #ff71ce, 0 0 18px rgba(1,205,254,.4);
+      color: #fff;
+    }
+
+    .gradient-text {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 60s ease infinite;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+
+    footer { background:#111; padding:20px 0; text-align:center; font-size:.9rem; }
+    footer a { color:#fff; text-decoration: underline; }
+    footer a:hover { color:#ff71ce; text-shadow:0 0 6px #ff71ce; }
   </style>
 </head>
 <body>
@@ -112,10 +206,31 @@
     </div>
   </nav>
 
-  <!-- GALLERY: Category Accordion -->
-  <div class="container py-4">
-    <div class="accordion" id="galleryAccordion">
-      <!-- Sections injected via JS -->
+  <!-- CATEGORY CARDS VIEW -->
+  <div id="categoriesView" class="container py-4">
+    <div id="catGrid">
+      <!-- cards injected -->
+    </div>
+  </div>
+
+  <!-- SINGLE GALLERY VIEW -->
+  <div id="galleryView" class="container py-4" style="display:none;">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <a href="#" class="back-btn" id="backBtn"><i class="bi bi-arrow-left"></i><span>Back to Categories</span></a>
+      <h2 class="m-0 gradient-text" id="galleryTitle"></h2>
+      <div style="width:152px;"></div>
+    </div>
+    <div class="gallery-box p-4 rounded-4">
+      <!-- Main Swiper -->
+      <div class="swiper mainSwiper mb-3">
+        <div class="swiper-wrapper" id="mainSwiperWrapper">
+          <!-- Slides injected -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <!-- Thumbs -->
+      <div class="row g-2 pt-2 justify-content-center" id="thumbGridWrapper"></div>
     </div>
   </div>
 
@@ -140,274 +255,315 @@
     <p>&copy; 2025 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
   </footer>
 
-  <!-- JS libs (Bootstrap bundle includes Popper) -->
+  <!-- JS libs -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
-  <!-- App script (defensive) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // ---- Config ----
-      const CATEGORIES = [
-        { folder: 'inktober 2024',    count: 31 },
-        { folder: 'glitch',    count: 8  },
-        { folder: 'canvas',    count: 6  },
-        { folder: 'portraits', count: 7  },
-      ];
-      const BASE = 'https://shoeslug.netlify.app/gallery/images';
+    // ========= CONFIG =========
+    const BASE = 'https://shoeslug.netlify.app/gallery/images'; // /<folder>/imageN.jpg & /<folder>/resize/imageN.jpg
+    const MANIFEST_URL = 'https://shoeslug.netlify.app/gallery/manifest.json';
 
-      // ---- Safe feature detection ----
-      const hasBootstrap = !!(window.bootstrap && bootstrap.Collapse);
-      const hasSwiper    = !!window.Swiper;
-      const hasFsLb      = typeof window.refreshFsLightbox === 'function';
+    // Fallback categories if manifest is missing
+    const FALLBACK_CATEGORIES = [
+      { folder: 'cosmic',    count: 10, desc: 'Starlit dreamscapes & neon galaxies' },
+      { folder: 'glitch',    count: 8,  desc: 'Pixel chaos & broken realities' },
+      { folder: 'canvas',    count: 6,  desc: 'Paint, brush, and messy emotion' },
+      { folder: 'portraits', count: 7,  desc: 'Faces, moods, and character studies' },
+    ];
 
-      const accRoot = document.getElementById('galleryAccordion');
-      const swipers = new Map();
-      let activeFolder = null;
+    // ========= STATE =========
+    let CATEGORIES = [];            // will be filled from manifest or fallback
+    let currentFolder = null;
+    let mainSwiper = null;
 
-      const toTitleCase = (slug) => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    // ========= HELPERS =========
+    const el  = (sel) => document.querySelector(sel);
+    const els = (sel) => Array.from(document.querySelectorAll(sel));
+    const toTitleCase = (slug) => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-      function sectionHTML({ folder, count }, index) {
-        const headerId   = `heading-${folder}`;
-        const collapseId = `collapse-${folder}`;
-        const lightboxKey= `gallery-${folder}`;
-        let slides = '', thumbs = '';
-        for (let i = 0; i < count; i++) {
-          const full  = `${BASE}/${folder}/image${i}.jpg`;
-          const thumb = `${BASE}/${folder}/resize/image${i}.jpg`;
-          const alt   = `${toTitleCase(folder)} ${i + 1}`;
-          slides += `
-            <div class="swiper-slide">
-              <a data-fslightbox="${lightboxKey}" href="${full}">
-                <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
-              </a>
-            </div>`;
-          thumbs += `
-            <div class="col-4 col-sm-3 col-md-2 col-lg-2">
-              <a id="${folder}-thumb-${i}" href="${full}" title="${alt}">
-                <div class="zoom-thumb">
-                  <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
-                </div>
-              </a>
-            </div>`;
-        }
-        return `
-          <div class="accordion-item mb-3 gallery-box rounded-4" id="cat-${folder}">
-            <h2 class="accordion-header" id="${headerId}">
-              <button class="accordion-button ${index===0?'':'collapsed'}" type="button"
-                data-bs-toggle="collapse" data-bs-target="#${collapseId}"
-                aria-expanded="${index===0?'true':'false'}" aria-controls="${collapseId}">
-                <span class="me-2">🎨</span> ${toTitleCase(folder)} <span class="ms-2 small opacity-75">(${count})</span>
-              </button>
-            </h2>
-            <div id="${collapseId}" class="accordion-collapse collapse ${index===0?'show':''}" aria-labelledby="${headerId}" data-bs-parent="#galleryAccordion">
-              <div class="accordion-body">
-                <div class="swiper mainSwiper mb-3" id="swiper-${folder}" tabindex="0" style="outline:none">
-                  <div class="swiper-wrapper">${slides}</div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
-                </div>
-                <div class="row g-2 pt-2 justify-content-center" id="${folder}-thumbGrid">${thumbs}</div>
-              </div>
-            </div>
-          </div>`;
+    function buildImagesFor(folder) {
+      if (folder === 'all') {
+        // flatten all
+        return CATEGORIES.flatMap(cat =>
+          Array.from({ length: cat.count }, (_, i) => ({
+            full:  `${BASE}/${cat.folder}/image${i}.jpg`,
+            thumb: `${BASE}/${cat.folder}/resize/image${i}.jpg`,
+            alt:   `${toTitleCase(cat.folder)} ${i + 1}`,
+          }))
+        );
       }
+      const cat = CATEGORIES.find(c => c.folder === folder);
+      if (!cat) return [];
+      return Array.from({ length: cat.count }, (_, i) => ({
+        full:  `${BASE}/${folder}/image${i}.jpg`,
+        thumb: `${BASE}/${folder}/resize/image${i}.jpg`,
+        alt:   `${toTitleCase(folder)} ${i + 1}`,
+      }));
+    }
 
-      // Inject sections
-      CATEGORIES.forEach((c, i) => accRoot.insertAdjacentHTML('beforeend', sectionHTML(c, i)));
+    function showCategoriesView() {
+      el('#categoriesView').style.display = '';
+      el('#galleryView').style.display = 'none';
+      currentFolder = null;
+      if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
+      history.replaceState(null, '', '#'); // clear hash
+    }
 
-      // Initialize FS Lightbox safely
-      if (hasFsLb) {
-        try { refreshFsLightbox(); } catch (e) { console.warn('FS Lightbox init warning:', e); }
+    function showGalleryView() {
+      el('#categoriesView').style.display = 'none';
+      el('#galleryView').style.display = '';
+    }
+
+    function setActiveThumb(index) {
+      els('#thumbGridWrapper a').forEach(a => a.classList.remove('active-thumb'));
+      const active = el(`#thumb-${index}`);
+      if (active) active.classList.add('active-thumb');
+    }
+
+    function initSwiper() {
+      if (!window.Swiper) {
+        console.error('Swiper missing.');
+        return null;
       }
-
-      // Create swipers (if lib missing, page still works without them)
-      CATEGORIES.forEach(({ folder, count }, idx) => {
-        const swiperEl = document.getElementById(`swiper-${folder}`);
-
-        let sw = null;
-        if (hasSwiper) {
-          try {
-            sw = new Swiper(swiperEl, {
-              spaceBetween: 10,
-              loop: count > 1,
-              speed: 800,
-              autoplay: { delay: 12000, disableOnInteraction: true },
-              navigation: {
-                nextEl: swiperEl.querySelector('.swiper-button-next'),
-                prevEl: swiperEl.querySelector('.swiper-button-prev'),
-              },
-              on: {
-                init()        { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); },
-                slideChange() { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); }
-              }
-            });
-          } catch (e) {
-            console.warn('Swiper init failed for', folder, e);
+      // destroy prior
+      if (mainSwiper && typeof mainSwiper.destroy === 'function') {
+        try { mainSwiper.destroy(true, true); } catch {}
+      }
+      mainSwiper = new Swiper('.mainSwiper', {
+        spaceBetween: 10,
+        loop: true,
+        speed: 800,
+        autoplay: { delay: 12000, disableOnInteraction: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        on: {
+          init() {
+            setActiveThumb(this.realIndex);
+            maybeUpdateHash(currentFolder, this.realIndex);
+          },
+          slideChange() {
+            setActiveThumb(this.realIndex);
+            maybeUpdateHash(currentFolder, this.realIndex);
           }
         }
+      });
+      // pause autoplay when lightbox opens/resume on close
+      document.addEventListener('fsLightboxOpen', () => {
+        if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
+      });
+      document.addEventListener('fsLightboxClose', () => {
+        if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.start();
+      });
+      return mainSwiper;
+    }
 
-        // Thumb click -> slideTo or just scroll if no Swiper
-        for (let i = 0; i < count; i++) {
-          const a = document.getElementById(`${folder}-thumb-${i}`);
-          if (!a) continue;
-          a.addEventListener('click', (e) => {
-            e.preventDefault(); e.stopPropagation();
-            if (sw && typeof sw.slideToLoop === 'function') {
-              sw.slideToLoop(i, 500);
-              setActiveThumb(folder, i);
-              maybeUpdateHash(folder, i);
-            } else {
-              // no swiper: open lightbox or just jump hash
-              window.location.hash = `#${folder}:${i}`;
-            }
-            smoothScrollToPanel(swiperEl.closest('.accordion-item'));
-          });
-        }
+    function smoothScrollToGalleryTop() {
+      const box = el('.gallery-box');
+      const navbar = el('.navbar');
+      if (!box || !navbar) return;
+      const top = box.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 6;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
 
-        swipers.set(folder, sw);
-        if (idx === 0) activeFolder = folder;
+    function refreshLightboxSafe() {
+      if (typeof window.refreshFsLightbox === 'function') {
+        try { refreshFsLightbox(); } catch (e) { console.warn('FS LB refresh warn:', e); }
+      } else {
+        setTimeout(() => { if (typeof window.refreshFsLightbox === 'function') try { refreshFsLightbox(); } catch {} }, 0);
+      }
+    }
+
+    function maybeUpdateHash(folder, index) {
+      if (!folder) return;
+      const idxPart = (typeof index === 'number') ? `:${index}` : '';
+      const nextHash = `#${folder}${idxPart}`;
+      if (location.hash !== nextHash) {
+        try { history.replaceState(null, '', nextHash); } catch {}
+      }
+    }
+
+    function parseHash() {
+      const raw = (location.hash || '').replace(/^#/, '').trim();
+      if (!raw) return null;
+      const [folder, idxRaw] = raw.split(':');
+      const index = Number.isFinite(+idxRaw) ? Math.max(0, +idxRaw) : null;
+      return { folder, index };
+    }
+
+    // ========= RENDERERS =========
+    function renderCategoryCards() {
+      const grid = el('#catGrid');
+      grid.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      // Add “All”
+      const total = CATEGORIES.reduce((sum,c)=>sum+c.count,0);
+      frag.appendChild(buildCard({
+        folder: 'all',
+        count: total,
+        desc: 'Every piece in one endless stream'
+      }, /*cover*/ `${BASE}/${CATEGORIES[0].folder}/resize/image0.jpg`));
+
+      // Real categories
+      CATEGORIES.forEach(cat => {
+        const cover = `${BASE}/${cat.folder}/resize/image0.jpg`;
+        frag.appendChild(buildCard(cat, cover));
       });
 
-      function setActiveThumb(folder, index) {
-        document.querySelectorAll(`#${folder}-thumbGrid a`).forEach(a => a.classList.remove('active-thumb'));
-        const a = document.getElementById(`${folder}-thumb-${index}`);
-        if (a) a.classList.add('active-thumb');
-      }
+      grid.appendChild(frag);
+    }
 
-      function smoothScrollToPanel(panel) {
-        const navbar = document.querySelector('.navbar');
-        if (!panel || !navbar) return;
-        const top = panel.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 12;
+    function buildCard({ folder, count, desc }, cover) {
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <div class="cat-card" data-folder="${folder}">
+          <img class="cat-cover" src="${cover}" alt="${toTitleCase(folder)} cover" loading="lazy">
+          <div class="cat-body">
+            <div>
+              <h3 class="cat-title">${toTitleCase(folder)}</h3>
+              <p class="cat-desc">${desc || ''}</p>
+            </div>
+            <span class="cat-count">(${count})</span>
+          </div>
+        </div>`;
+      wrap.querySelector('.cat-card').addEventListener('click', () => openCategory(folder, 0));
+      return wrap.firstElementChild;
+    }
+
+    function renderGallery(folder, index = 0) {
+      currentFolder = folder;
+      el('#galleryTitle').textContent = toTitleCase(folder);
+
+      const images = buildImagesFor(folder);
+      const main = el('#mainSwiperWrapper');
+      const thumbs = el('#thumbGridWrapper');
+      main.innerHTML = '';
+      thumbs.innerHTML = '';
+
+      // slides
+      const lightboxKey = `gallery-${folder}`;
+      let slidesHtml = '';
+      images.forEach(({ full, alt }) => {
+        slidesHtml += `
+          <div class="swiper-slide">
+            <a data-fslightbox="${lightboxKey}" href="${full}">
+              <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
+            </a>
+          </div>`;
+      });
+      main.innerHTML = slidesHtml;
+
+      // thumbs
+      const frag = document.createDocumentFragment();
+      images.forEach(({ thumb, full, alt }, i) => {
+        const col = document.createElement('div');
+        col.className = 'col-4 col-sm-3 col-md-2 col-lg-2';
+        col.innerHTML = `
+          <a id="thumb-${i}" href="${full}" title="${alt}">
+            <div class="zoom-thumb">
+              <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
+            </div>
+          </a>`;
+        col.querySelector('a').addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          if (mainSwiper && typeof mainSwiper.slideToLoop === 'function') {
+            mainSwiper.slideToLoop(i, 500);
+            setActiveThumb(i);
+            maybeUpdateHash(folder, i);
+            smoothScrollToGalleryTop();
+          }
+        });
+        frag.appendChild(col);
+      });
+      thumbs.appendChild(frag);
+
+      // lightbox then swiper
+      refreshLightboxSafe();
+      initSwiper();
+
+      // initial index
+      if (mainSwiper && typeof index === 'number') {
+        mainSwiper.slideToLoop(Math.min(Math.max(index, 0), images.length - 1), 0);
+        setActiveThumb(index);
+      }
+    }
+
+    // ========= CONTROLLERS =========
+    function openCategory(folder, index = 0) {
+      showGalleryView();
+      renderGallery(folder, index);
+      maybeUpdateHash(folder, index || 0);
+      smoothScrollToGalleryTop();
+    }
+
+    function handleBack() {
+      showCategoriesView();
+      const grid = el('#categoriesView');
+      const navbar = el('.navbar');
+      if (grid && navbar) {
+        const top = grid.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 6;
         window.scrollTo({ top, behavior: 'smooth' });
       }
+    }
 
-      // Keyboard arrows on active section
+    async function loadManifest() {
+      // Try to fetch /gallery/manifest.json
+      try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 4000); // 4s safety timeout
+        const res = await fetch(MANIFEST_URL, { signal: ctrl.signal, cache: 'no-store' });
+        clearTimeout(t);
+        if (!res.ok) throw new Error('Manifest request failed: ' + res.status);
+        const json = await res.json();
+        // Expecting { "categories": [ { folder, count, desc? }, ... ] }
+        if (json && Array.isArray(json.categories) && json.categories.length) {
+          return json.categories;
+        }
+        throw new Error('Manifest missing categories array.');
+      } catch (e) {
+        console.warn('Using fallback categories. Reason:', e.message || e);
+        return FALLBACK_CATEGORIES;
+      }
+    }
+
+    // ========= INIT =========
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Back button
+      el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
+
+      // Keyboard arrows only in gallery view
       document.addEventListener('keydown', (e) => {
-        if (!activeFolder) return;
+        if (el('#galleryView').style.display === 'none') return;
+        if (!mainSwiper) return;
         const tag = (e.target && e.target.tagName || '').toLowerCase();
         if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
-        const sw = swipers.get(activeFolder);
-        if (!sw) return;
-        if (e.key === 'ArrowRight') sw.slideNext && sw.slideNext();
-        if (e.key === 'ArrowLeft')  sw.slidePrev && sw.slidePrev();
+        if (e.key === 'ArrowRight') mainSwiper.slideNext();
+        else if (e.key === 'ArrowLeft') mainSwiper.slidePrev();
       });
 
-      // Accordion behavior: Bootstrap if present, fallback otherwise
-      const accEl = document.getElementById('galleryAccordion');
+      // Load categories (manifest or fallback)
+      CATEGORIES = await loadManifest();
 
-      if (hasBootstrap) {
-        accEl.addEventListener('shown.bs.collapse', (e) => {
-          const folder = e.target.id.replace(/^collapse-/, '');
-          activeFolder = folder;
-          swipers.forEach((sw, f) => {
-            if (sw && sw.autoplay) (f === folder ? sw.autoplay.start() : sw.autoplay.stop());
-          });
-          const container = document.getElementById(`swiper-${folder}`);
-          container && container.focus && container.focus();
-          maybeUpdateHash(folder, null);
-        });
-        accEl.addEventListener('hidden.bs.collapse', (e) => {
-          const folder = e.target.id.replace(/^collapse-/, '');
-          const sw = swipers.get(folder);
-          sw && sw.autoplay && sw.autoplay.stop();
-        });
+      // Build cards
+      renderCategoryCards();
+
+      // Deep link on load
+      const deep = parseHash();
+      if (deep && (deep.folder === 'all' || CATEGORIES.some(c => c.folder === deep.folder))) {
+        openCategory(deep.folder, (typeof deep.index === 'number') ? deep.index : 0);
       } else {
-        // Fallback accordion toggle
-        accEl.querySelectorAll('.accordion-button').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const targetSel = btn.getAttribute('data-bs-target');
-            const target = targetSel ? document.querySelector(targetSel) : null;
-            if (!target) return;
-
-            // close others
-            accEl.querySelectorAll('.accordion-collapse.show').forEach(open => {
-              if (open !== target) open.classList.remove('show');
-            });
-
-            target.classList.toggle('show');
-
-            // update activeFolder + autoplay
-            const folder = (target.id || '').replace(/^collapse-/, '');
-            activeFolder = folder;
-            swipers.forEach((sw, f) => {
-              if (sw && sw.autoplay) (f === folder ? sw.autoplay.start() : sw.autoplay.stop());
-            });
-
-            // focus
-            const container = document.getElementById(`swiper-${folder}`);
-            container && container.focus && container.focus();
-            maybeUpdateHash(folder, null);
-          });
-        });
+        showCategoriesView();
       }
 
-      // Sync with FS Lightbox (if present)
-      if (hasFsLb) {
-        document.addEventListener('fsLightboxOpen', () => {
-          const sw = activeFolder && swipers.get(activeFolder);
-          sw && sw.autoplay && sw.autoplay.stop();
-        });
-        document.addEventListener('fsLightboxClose', () => {
-          const sw = activeFolder && swipers.get(activeFolder);
-          sw && sw.autoplay && sw.autoplay.start();
-        });
-      }
-
-      // Deep-linking (#folder[:index]) with graceful fallback
-      function parseHash() {
-        const raw = (window.location.hash || '').replace(/^#/, '').trim();
-        if (!raw) return null;
-        const [folder, idxRaw] = raw.split(':');
-        const index = Number.isFinite(+idxRaw) ? Math.max(0, +idxRaw) : null;
-        return { folder, index };
-      }
-      function openFolder(folder) {
-        const collapse = document.getElementById(`collapse-${folder}`);
-        if (!collapse) return false;
-        try {
-          if (hasBootstrap) {
-            bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false }).show();
-          } else {
-            // fallback
-            accEl.querySelectorAll('.accordion-collapse.show').forEach(el => el.classList.remove('show'));
-            collapse.classList.add('show');
-          }
-          return true;
-        } catch (e) { console.warn('Open folder failed', folder, e); return false; }
-      }
-      function maybeUpdateHash(folder, index) {
-        if (!folder) return;
-        const current = parseHash();
-        const idxPart = (typeof index === 'number') ? `:${index}` : '';
-        const nextHash = `#${folder}${idxPart}`;
-        if (!current || current.folder !== folder || (typeof index === 'number' && current.index !== index)) {
-          try { history.replaceState(null, '', nextHash); } catch {}
-        }
-      }
-
-      // on load: apply deep link
-      requestAnimationFrame(() => {
-        const deep = parseHash();
-        if (deep && openFolder(deep.folder)) {
-          const sw = swipers.get(deep.folder);
-          if (sw && typeof deep.index === 'number') {
-            const max = sw.slides ? sw.slides.length : 0;
-            const idx = max ? Math.min(Math.max(deep.index, 0), max - 1) : deep.index;
-            sw.slideToLoop && sw.slideToLoop(idx, 0);
-            setActiveThumb(deep.folder, idx);
-          }
-          smoothScrollToPanel(document.getElementById(`cat-${deep.folder}`));
-        } else {
-          // default autoplay state
-          swipers.forEach((sw, f) => {
-            if (!sw || !sw.autoplay) return;
-            (f === activeFolder) ? sw.autoplay.start() : sw.autoplay.stop();
-          });
+      // React to external hash changes
+      window.addEventListener('hashchange', () => {
+        const d = parseHash();
+        if (!d) { showCategoriesView(); return; }
+        if (d.folder === 'all' || CATEGORIES.some(c => c.folder === d.folder)) {
+          openCategory(d.folder, (typeof d.index === 'number') ? d.index : 0);
         }
       });
-
     });
   </script>
 </body>
