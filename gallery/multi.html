@@ -8,18 +8,15 @@
   <meta name="keywords" content="Shoe Slug art, vaporwave gallery, visual art, cosmic vibes, surrealism, glitchcore, digital art" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://shoeslug.netlify.app/gallery/" />
-
   <meta property="og:title" content="Shoe Slug – Art Gallery" />
   <meta property="og:description" content="Step into a dimension of neon brushstrokes and digital dreamscapes." />
   <meta property="og:image" content="https://shoeslug.netlify.app/og-image.jpg" />
   <meta property="og:url" content="https://shoeslug.netlify.app/gallery/" />
   <meta property="og:type" content="profile" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shoe Slug – Art Gallery" />
   <meta name="twitter:description" content="Visuals that melt the matrix. Explore Shoe Slug's art." />
   <meta name="twitter:image" content="https://shoeslug.netlify.app/og-image.jpg" />
-
   <link rel="icon" type="image/png" href="https://shoeslug.netlify.app/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="https://shoeslug.netlify.app/favicon.svg" />
   <link rel="shortcut icon" href="https://shoeslug.netlify.app/favicon.ico" />
@@ -27,13 +24,12 @@
   <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
   <link rel="manifest" href="https://shoeslug.netlify.app/site.webmanifest" />
 
-  <!-- Bootstrap / Icons / Swiper -->
+  <!-- CSS libs -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
-    /* ====== your existing vibe ====== */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -46,49 +42,36 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     .navbar-brand {
       font-weight: bold;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
       background-size: 400% 400%;
       animation: gradientShift 120s ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #ff71ce;
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      color: #ff71ce; text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     }
-    .navbar-brand img { transition: transform 0.3s ease, filter 0.3s ease; }
+    .navbar-brand img { transition: transform .3s ease, filter .3s ease; }
     .navbar-brand img:hover { transform: rotate(-10deg) scale(1.1); filter: drop-shadow(0 0 4px #ff71ce); }
 
-    /* colored nav links + glow */
     .navbar-nav > li:nth-child(1) > .nav-link { color: #ff71ce !important; }
     .navbar-nav > li:nth-child(2) > .nav-link { color: #01cdfe !important; }
     .navbar-nav > li:nth-child(3) > .nav-link { color: #05ffa1 !important; }
     .navbar-nav > li:nth-child(4) > .nav-link { color: #b967ff !important; }
     .navbar-nav > li:nth-child(5) > .nav-link { color: #fffb96 !important; }
     .navbar-nav > li:nth-child(6) > .nav-link { color: #ff9966 !important; }
-    .navbar-nav > li > .nav-link:hover {
-      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
-      transition: all 0.3s ease;
-    }
-    .navbar-nav .nav-link.active {
-      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor;
-      transition: all 0.3s ease;
-    }
+    .navbar-nav > li > .nav-link:hover { text-shadow: 0 0 6px currentColor, 0 0 12px currentColor; transition: all .3s ease; }
+    .navbar-nav .nav-link.active { text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor; transition: all .3s ease; }
 
     .gallery-box {
       background: rgba(0, 0, 0, 0.4);
       box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), 0 0 80px rgba(1, 205, 254, 0.2);
       backdrop-filter: blur(8px);
       border: 2px solid rgba(255, 255, 255, 0.15);
+      position: relative;
     }
-
     .swiper-button-next, .swiper-button-prev {
-      color: #ff71ce;
-      text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe;
+      color: #ff71ce; text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe;
     }
-
-    /* glow pulse for active thumb (your existing behavior) */
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
       50% { box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1; }
@@ -96,32 +79,12 @@
     }
     .active-thumb img {
       box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      animation: pulseGlow 2s infinite ease-in-out;
+      border: 2px solid #fff; border-radius: 8px; animation: pulseGlow 2s infinite ease-in-out;
     }
-
-    .gradient-text {
-      font-weight: bold;
-      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
-      background-size: 400% 400%;
-      animation: gradientShift 60s ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #ff71ce;
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    }
-    .social-icons a { margin: 0 10px; font-size: 1.5rem; color: #fff; transition: transform 0.3s ease, text-shadow 0.3s ease; }
-    .social-icons a:hover { transform: scale(1.2); color: #ff71ce; text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe, 0 0 18px #05ffa1; }
-
-    footer { background: #111; padding: 20px 0; text-align: center; font-size: 0.9rem; }
-    footer a { color: #fff; text-decoration: underline; }
-    footer a:hover { color: #ff71ce; text-shadow: 0 0 6px #ff71ce; }
-
-    /* ====== accordion polish ====== */
+    /* Accordion base (navbar-match polish can be added after this is stable) */
+    .accordion-item { border: 2px solid rgba(255, 255, 255, 0.15); border-radius: 1rem; overflow: hidden; }
     .accordion-button { background: rgba(0,0,0,0.45); color: #fff; }
     .accordion-button:not(.collapsed) { color: #fffbff; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.1); }
-    .accordion-item { border: 2px solid rgba(255, 255, 255, 0.15); border-radius: 1rem; overflow: hidden; }
     .accordion-body { background: transparent; }
   </style>
 </head>
@@ -177,244 +140,274 @@
     <p>&copy; 2025 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
+  <!-- JS libs (Bootstrap bundle includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
+  <!-- App script (defensive) -->
   <script>
-    /* ========= CONFIG =========
-       Use folder names as categories; image files follow your numbering scheme.
-       Example structure:
-       /gallery/images/cosmic/image0.jpg
-       /gallery/images/cosmic/resize/image0.jpg
-    */
-    const CATEGORIES = [
-      { folder: 'inktober 2024',    count: 31 },
-      { folder: 'glitch',    count: 8  },
-      { folder: 'canvas',    count: 6  },
-      { folder: 'portraits', count: 7  },
-      // { folder: 'misc',    count: 12 },
-    ];
-    const BASE = 'https://shoeslug.netlify.app/gallery/images';
+    document.addEventListener('DOMContentLoaded', () => {
+      // ---- Config ----
+      const CATEGORIES = [
+        { folder: 'inktober 2024',    count: 31 },
+        { folder: 'glitch',    count: 8  },
+        { folder: 'canvas',    count: 6  },
+        { folder: 'portraits', count: 7  },
+      ];
+      const BASE = 'https://shoeslug.netlify.app/gallery/images';
 
-    // state
-    const swipers = new Map();    // folder -> Swiper
-    let activeFolder = null;      // which accordion section is open
+      // ---- Safe feature detection ----
+      const hasBootstrap = !!(window.bootstrap && bootstrap.Collapse);
+      const hasSwiper    = !!window.Swiper;
+      const hasFsLb      = typeof window.refreshFsLightbox === 'function';
 
-    // ===== helpers =====
-    const toTitleCase = (slug) =>
-      slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      const accRoot = document.getElementById('galleryAccordion');
+      const swipers = new Map();
+      let activeFolder = null;
 
-    function buildSection({ folder, count }, index) {
-      const sectionId   = `cat-${folder}`;
-      const headerId    = `heading-${folder}`;
-      const collapseId  = `collapse-${folder}`;
-      const lightboxKey = `gallery-${folder}`;
+      const toTitleCase = (slug) => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-      let slides = '';
-      let thumbs = '';
-
-      for (let i = 0; i < count; i++) {
-        const full  = `${BASE}/${folder}/image${i}.jpg`;
-        const thumb = `${BASE}/${folder}/resize/image${i}.jpg`;
-        const alt   = `${toTitleCase(folder)} ${i + 1}`;
-
-        slides += `
-          <div class="swiper-slide">
-            <a data-fslightbox="${lightboxKey}" href="${full}">
-              <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
-            </a>
-          </div>`;
-        thumbs += `
-          <div class="col-4 col-sm-3 col-md-2 col-lg-2">
-            <a id="${folder}-thumb-${i}" href="${full}" title="${alt}">
-              <div class="zoom-thumb">
-                <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
-              </div>
-            </a>
-          </div>`;
-      }
-
-      return `
-        <div class="accordion-item mb-3 gallery-box rounded-4" id="${sectionId}">
-          <h2 class="accordion-header" id="${headerId}">
-            <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" type="button"
-              data-bs-toggle="collapse" data-bs-target="#${collapseId}"
-              aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="${collapseId}">
-              <span class="me-2">🎨</span> ${toTitleCase(folder)} <span class="ms-2 small opacity-75">(${count})</span>
-            </button>
-          </h2>
-          <div id="${collapseId}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" aria-labelledby="${headerId}" data-bs-parent="#galleryAccordion">
-            <div class="accordion-body">
-              <!-- Main Swiper -->
-              <div class="swiper mainSwiper mb-3" id="swiper-${folder}">
-                <div class="swiper-wrapper">
-                  ${slides}
+      function sectionHTML({ folder, count }, index) {
+        const headerId   = `heading-${folder}`;
+        const collapseId = `collapse-${folder}`;
+        const lightboxKey= `gallery-${folder}`;
+        let slides = '', thumbs = '';
+        for (let i = 0; i < count; i++) {
+          const full  = `${BASE}/${folder}/image${i}.jpg`;
+          const thumb = `${BASE}/${folder}/resize/image${i}.jpg`;
+          const alt   = `${toTitleCase(folder)} ${i + 1}`;
+          slides += `
+            <div class="swiper-slide">
+              <a data-fslightbox="${lightboxKey}" href="${full}">
+                <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
+              </a>
+            </div>`;
+          thumbs += `
+            <div class="col-4 col-sm-3 col-md-2 col-lg-2">
+              <a id="${folder}-thumb-${i}" href="${full}" title="${alt}">
+                <div class="zoom-thumb">
+                  <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-              <!-- Thumbs Grid -->
-              <div class="row g-2 pt-2 justify-content-center" id="${folder}-thumbGrid">
-                ${thumbs}
+              </a>
+            </div>`;
+        }
+        return `
+          <div class="accordion-item mb-3 gallery-box rounded-4" id="cat-${folder}">
+            <h2 class="accordion-header" id="${headerId}">
+              <button class="accordion-button ${index===0?'':'collapsed'}" type="button"
+                data-bs-toggle="collapse" data-bs-target="#${collapseId}"
+                aria-expanded="${index===0?'true':'false'}" aria-controls="${collapseId}">
+                <span class="me-2">🎨</span> ${toTitleCase(folder)} <span class="ms-2 small opacity-75">(${count})</span>
+              </button>
+            </h2>
+            <div id="${collapseId}" class="accordion-collapse collapse ${index===0?'show':''}" aria-labelledby="${headerId}" data-bs-parent="#galleryAccordion">
+              <div class="accordion-body">
+                <div class="swiper mainSwiper mb-3" id="swiper-${folder}" tabindex="0" style="outline:none">
+                  <div class="swiper-wrapper">${slides}</div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+                <div class="row g-2 pt-2 justify-content-center" id="${folder}-thumbGrid">${thumbs}</div>
               </div>
             </div>
-          </div>
-        </div>`;
-    }
+          </div>`;
+      }
 
-    // inject sections
-    const acc = document.getElementById('galleryAccordion');
-    CATEGORIES.forEach((cat, i) => acc.insertAdjacentHTML('beforeend', buildSection(cat, i)));
+      // Inject sections
+      CATEGORIES.forEach((c, i) => accRoot.insertAdjacentHTML('beforeend', sectionHTML(c, i)));
 
-    // lightbox (FS Lightbox) init after DOM injection
-    refreshFsLightbox();
+      // Initialize FS Lightbox safely
+      if (hasFsLb) {
+        try { refreshFsLightbox(); } catch (e) { console.warn('FS Lightbox init warning:', e); }
+      }
 
-    // create Swipers + wire thumbs
-    CATEGORIES.forEach(({ folder, count }, idx) => {
-      const swiperEl = document.getElementById(`swiper-${folder}`);
-      const swiper = new Swiper(swiperEl, {
-        spaceBetween: 10,
-        loop: count > 1,
-        speed: 800,
-        autoplay: { delay: 12000, disableOnInteraction: true },
-        navigation: {
-          nextEl: swiperEl.querySelector('.swiper-button-next'),
-          prevEl: swiperEl.querySelector('.swiper-button-prev'),
-        },
-        on: {
-          init()        { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); },
-          slideChange() { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); },
-        }
-      });
+      // Create swipers (if lib missing, page still works without them)
+      CATEGORIES.forEach(({ folder, count }, idx) => {
+        const swiperEl = document.getElementById(`swiper-${folder}`);
 
-      // thumbs click -> slide, smooth scroll to top of panel (respect navbar height)
-      for (let i = 0; i < count; i++) {
-        const a = document.getElementById(`${folder}-thumb-${i}`);
-        if (!a) continue;
-        a.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation();
-          swiper.slideToLoop(i, 500);
-          setActiveThumb(folder, i);
-
-          const panel  = swiperEl.closest('.accordion-item');
-          const navbar = document.querySelector('.navbar');
-          if (panel && navbar) {
-            const top = panel.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 12;
-            window.scrollTo({ top, behavior: 'smooth' });
+        let sw = null;
+        if (hasSwiper) {
+          try {
+            sw = new Swiper(swiperEl, {
+              spaceBetween: 10,
+              loop: count > 1,
+              speed: 800,
+              autoplay: { delay: 12000, disableOnInteraction: true },
+              navigation: {
+                nextEl: swiperEl.querySelector('.swiper-button-next'),
+                prevEl: swiperEl.querySelector('.swiper-button-prev'),
+              },
+              on: {
+                init()        { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); },
+                slideChange() { setActiveThumb(folder, this.realIndex); maybeUpdateHash(folder, this.realIndex); }
+              }
+            });
+          } catch (e) {
+            console.warn('Swiper init failed for', folder, e);
           }
-        });
-      }
+        }
 
-      swipers.set(folder, swiper);
-      if (idx === 0) activeFolder = folder; // default active
-    });
+        // Thumb click -> slideTo or just scroll if no Swiper
+        for (let i = 0; i < count; i++) {
+          const a = document.getElementById(`${folder}-thumb-${i}`);
+          if (!a) continue;
+          a.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            if (sw && typeof sw.slideToLoop === 'function') {
+              sw.slideToLoop(i, 500);
+              setActiveThumb(folder, i);
+              maybeUpdateHash(folder, i);
+            } else {
+              // no swiper: open lightbox or just jump hash
+              window.location.hash = `#${folder}:${i}`;
+            }
+            smoothScrollToPanel(swiperEl.closest('.accordion-item'));
+          });
+        }
 
-    // maintain active thumb glow
-    function setActiveThumb(folder, index) {
-      document.querySelectorAll(`#${folder}-thumbGrid a`).forEach(a => a.classList.remove('active-thumb'));
-      const active = document.getElementById(`${folder}-thumb-${index}`);
-      if (active) active.classList.add('active-thumb');
-    }
-
-    // keyboard arrows control the ACTIVE section’s swiper (matches your original UX)
-    document.addEventListener('keydown', (e) => {
-      if (!activeFolder) return;
-      // ignore when typing in inputs/textareas
-      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
-      if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
-
-      const sw = swipers.get(activeFolder);
-      if (!sw) return;
-      if (e.key === 'ArrowRight') sw.slideNext();
-      else if (e.key === 'ArrowLeft') sw.slidePrev();
-    });
-
-    // track accordion open section (also toggle autoplay to save cycles)
-    const accordionEl = document.getElementById('galleryAccordion');
-    accordionEl.addEventListener('shown.bs.collapse', (e) => {
-      const folder = e.target.id.replace(/^collapse-/, '');
-      activeFolder = folder;
-      // resume this swiper, pause others
-      swipers.forEach((sw, f) => {
-        if (f === folder) sw.autoplay && sw.autoplay.start();
-        else sw.autoplay && sw.autoplay.stop();
+        swipers.set(folder, sw);
+        if (idx === 0) activeFolder = folder;
       });
-      // focus the newly opened swiper's container so arrow keys feel snappy on mobile keyboards
-      const container = document.getElementById(`swiper-${folder}`);
-      container && container.focus && container.focus();
-      // if hash lacks index, update to #folder
-      maybeUpdateHash(folder, null);
-    });
-    accordionEl.addEventListener('hidden.bs.collapse', (e) => {
-      const folder = e.target.id.replace(/^collapse-/, '');
-      const sw = swipers.get(folder);
-      sw && sw.autoplay && sw.autoplay.stop();
-    });
 
-    // ===== Deep-linking: #folder[:index] =====
-    function parseHash() {
-      const raw = window.location.hash.replace(/^#/, '').trim();
-      if (!raw) return null;
-      const [folder, idxRaw] = raw.split(':');
-      const index = Number.isFinite(+idxRaw) ? Math.max(0, +idxRaw) : null;
-      return { folder, index };
-    }
-    function openFolder(folder) {
-      const collapse = document.getElementById(`collapse-${folder}`);
-      if (!collapse) return false;
-      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false });
-      bsCollapse.show();
-      return true;
-    }
-    function maybeUpdateHash(folder, index) {
-      // keep hash in sync without breaking back/forward heavily
-      if (!folder) return;
-      const current = parseHash();
-      const idxPart = (typeof index === 'number') ? `:${index}` : '';
-      const nextHash = `#${folder}${idxPart}`;
-      if (!current || current.folder !== folder || (typeof index === 'number' && current.index !== index)) {
-        history.replaceState(null, '', nextHash);
+      function setActiveThumb(folder, index) {
+        document.querySelectorAll(`#${folder}-thumbGrid a`).forEach(a => a.classList.remove('active-thumb'));
+        const a = document.getElementById(`${folder}-thumb-${index}`);
+        if (a) a.classList.add('active-thumb');
       }
-    }
 
-    // on load: if hash present, open and position
-    window.addEventListener('load', () => {
-      const deep = parseHash();
-      if (deep && openFolder(deep.folder)) {
-        const sw = swipers.get(deep.folder);
-        if (sw && typeof deep.index === 'number') {
-          // clamp to real range
-          const max = sw.slides.length;
-          const idx = Math.min(Math.max(deep.index, 0), max - 1);
-          sw.slideToLoop(idx, 0);
-          setActiveThumb(deep.folder, idx);
-        }
-        // scroll the opened panel into view
-        const panel  = document.getElementById(`cat-${deep.folder}`);
+      function smoothScrollToPanel(panel) {
         const navbar = document.querySelector('.navbar');
-        if (panel && navbar) {
-          const top = panel.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 12;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
+        if (!panel || !navbar) return;
+        const top = panel.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 12;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      // Keyboard arrows on active section
+      document.addEventListener('keydown', (e) => {
+        if (!activeFolder) return;
+        const tag = (e.target && e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+        const sw = swipers.get(activeFolder);
+        if (!sw) return;
+        if (e.key === 'ArrowRight') sw.slideNext && sw.slideNext();
+        if (e.key === 'ArrowLeft')  sw.slidePrev && sw.slidePrev();
+      });
+
+      // Accordion behavior: Bootstrap if present, fallback otherwise
+      const accEl = document.getElementById('galleryAccordion');
+
+      if (hasBootstrap) {
+        accEl.addEventListener('shown.bs.collapse', (e) => {
+          const folder = e.target.id.replace(/^collapse-/, '');
+          activeFolder = folder;
+          swipers.forEach((sw, f) => {
+            if (sw && sw.autoplay) (f === folder ? sw.autoplay.start() : sw.autoplay.stop());
+          });
+          const container = document.getElementById(`swiper-${folder}`);
+          container && container.focus && container.focus();
+          maybeUpdateHash(folder, null);
+        });
+        accEl.addEventListener('hidden.bs.collapse', (e) => {
+          const folder = e.target.id.replace(/^collapse-/, '');
+          const sw = swipers.get(folder);
+          sw && sw.autoplay && sw.autoplay.stop();
+        });
       } else {
-        // default: start autoplay only on the first (shown) section
-        swipers.forEach((sw, f) => {
-          if (f === activeFolder) sw.autoplay && sw.autoplay.start();
-          else sw.autoplay && sw.autoplay.stop();
+        // Fallback accordion toggle
+        accEl.querySelectorAll('.accordion-button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetSel = btn.getAttribute('data-bs-target');
+            const target = targetSel ? document.querySelector(targetSel) : null;
+            if (!target) return;
+
+            // close others
+            accEl.querySelectorAll('.accordion-collapse.show').forEach(open => {
+              if (open !== target) open.classList.remove('show');
+            });
+
+            target.classList.toggle('show');
+
+            // update activeFolder + autoplay
+            const folder = (target.id || '').replace(/^collapse-/, '');
+            activeFolder = folder;
+            swipers.forEach((sw, f) => {
+              if (sw && sw.autoplay) (f === folder ? sw.autoplay.start() : sw.autoplay.stop());
+            });
+
+            // focus
+            const container = document.getElementById(`swiper-${folder}`);
+            container && container.focus && container.focus();
+            maybeUpdateHash(folder, null);
+          });
         });
       }
-    });
 
-    // When lightbox opens, pause active swiper autoplay; resume on close (keeps your smooth feel)
-    document.addEventListener('fsLightboxOpen', () => {
-      const sw = activeFolder && swipers.get(activeFolder);
-      sw && sw.autoplay && sw.autoplay.stop();
-    });
-    document.addEventListener('fsLightboxClose', () => {
-      const sw = activeFolder && swipers.get(activeFolder);
-      sw && sw.autoplay && sw.autoplay.start();
+      // Sync with FS Lightbox (if present)
+      if (hasFsLb) {
+        document.addEventListener('fsLightboxOpen', () => {
+          const sw = activeFolder && swipers.get(activeFolder);
+          sw && sw.autoplay && sw.autoplay.stop();
+        });
+        document.addEventListener('fsLightboxClose', () => {
+          const sw = activeFolder && swipers.get(activeFolder);
+          sw && sw.autoplay && sw.autoplay.start();
+        });
+      }
+
+      // Deep-linking (#folder[:index]) with graceful fallback
+      function parseHash() {
+        const raw = (window.location.hash || '').replace(/^#/, '').trim();
+        if (!raw) return null;
+        const [folder, idxRaw] = raw.split(':');
+        const index = Number.isFinite(+idxRaw) ? Math.max(0, +idxRaw) : null;
+        return { folder, index };
+      }
+      function openFolder(folder) {
+        const collapse = document.getElementById(`collapse-${folder}`);
+        if (!collapse) return false;
+        try {
+          if (hasBootstrap) {
+            bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false }).show();
+          } else {
+            // fallback
+            accEl.querySelectorAll('.accordion-collapse.show').forEach(el => el.classList.remove('show'));
+            collapse.classList.add('show');
+          }
+          return true;
+        } catch (e) { console.warn('Open folder failed', folder, e); return false; }
+      }
+      function maybeUpdateHash(folder, index) {
+        if (!folder) return;
+        const current = parseHash();
+        const idxPart = (typeof index === 'number') ? `:${index}` : '';
+        const nextHash = `#${folder}${idxPart}`;
+        if (!current || current.folder !== folder || (typeof index === 'number' && current.index !== index)) {
+          try { history.replaceState(null, '', nextHash); } catch {}
+        }
+      }
+
+      // on load: apply deep link
+      requestAnimationFrame(() => {
+        const deep = parseHash();
+        if (deep && openFolder(deep.folder)) {
+          const sw = swipers.get(deep.folder);
+          if (sw && typeof deep.index === 'number') {
+            const max = sw.slides ? sw.slides.length : 0;
+            const idx = max ? Math.min(Math.max(deep.index, 0), max - 1) : deep.index;
+            sw.slideToLoop && sw.slideToLoop(idx, 0);
+            setActiveThumb(deep.folder, idx);
+          }
+          smoothScrollToPanel(document.getElementById(`cat-${deep.folder}`));
+        } else {
+          // default autoplay state
+          swipers.forEach((sw, f) => {
+            if (!sw || !sw.autoplay) return;
+            (f === activeFolder) ? sw.autoplay.start() : sw.autoplay.stop();
+          });
+        }
+      });
+
     });
   </script>
 </body>
