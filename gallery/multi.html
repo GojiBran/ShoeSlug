@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
   <title>Shoe Slug – Art Gallery</title>
+
+  <!-- Meta -->
   <meta name="description" content="Explore Shoe Slug's chaotic art gallery. Cosmic themes, pixel glitches, dreamy brushstrokes, and emotional visual noise." />
   <meta name="keywords" content="Shoe Slug art, vaporwave gallery, visual art, cosmic vibes, surrealism, glitchcore, digital art" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://shoeslug.netlify.app/gallery/" />
-
   <meta property="og:title" content="Shoe Slug – Art Gallery" />
   <meta property="og:description" content="Step into a dimension of neon brushstrokes and digital dreamscapes." />
   <meta property="og:image" content="https://shoeslug.netlify.app/og-image.jpg" />
   <meta property="og:url" content="https://shoeslug.netlify.app/gallery/" />
   <meta property="og:type" content="profile" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shoe Slug – Art Gallery" />
   <meta name="twitter:description" content="Visuals that melt the matrix. Explore Shoe Slug's art." />
   <meta name="twitter:image" content="https://shoeslug.netlify.app/og-image.jpg" />
-
   <link rel="icon" type="image/png" href="https://shoeslug.netlify.app/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="https://shoeslug.netlify.app/favicon.svg" />
   <link rel="shortcut icon" href="https://shoeslug.netlify.app/favicon.ico" />
@@ -33,7 +32,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
-    /* ====== Site vibe ====== */
+    /* ===== Your original vibe (restored) ===== */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -52,23 +51,29 @@
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
       background-size: 400% 400%;
       animation: gradientShift 120s ease infinite;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      color: #ff71ce; text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce; /* fallback for non-webkit */
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     }
-    .navbar-brand img { transition: transform .3s ease, filter .3s ease; }
+    .navbar-brand img { transition: transform 0.3s ease, filter 0.3s ease; }
     .navbar-brand img:hover { transform: rotate(-10deg) scale(1.1); filter: drop-shadow(0 0 4px #ff71ce); }
 
-    .navbar-nav > li:nth-child(1) > .nav-link { color: #ff71ce !important; }
-    .navbar-nav > li:nth-child(2) > .nav-link { color: #01cdfe !important; }
-    .navbar-nav > li:nth-child(3) > .nav-link { color: #05ffa1 !important; }
-    .navbar-nav > li:nth-child(4) > .nav-link { color: #b967ff !important; }
-    .navbar-nav > li:nth-child(5) > .nav-link { color: #fffb96 !important; }
-    .navbar-nav > li:nth-child(6) > .nav-link { color: #ff9966 !important; }
+    /* Colored nav links + glow (exact nth-child mapping) */
+    .navbar-nav > li:nth-child(1) > .nav-link { color: #ff71ce !important; } /* Home */
+    .navbar-nav > li:nth-child(2) > .nav-link { color: #01cdfe !important; } /* Music */
+    .navbar-nav > li:nth-child(3) > .nav-link { color: #05ffa1 !important; } /* Videos */
+    .navbar-nav > li:nth-child(4) > .nav-link { color: #b967ff !important; } /* Gallery */
+    .navbar-nav > li:nth-child(5) > .nav-link { color: #fffb96 !important; } /* About */
+    .navbar-nav > li:nth-child(6) > .nav-link { color: #ff9966 !important; } /* Contact (if used) */
+
     .navbar-nav > li > .nav-link:hover {
-      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor; transition: all .3s ease;
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+      transition: all 0.3s ease;
     }
     .navbar-nav .nav-link.active {
-      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor; transition: all .3s ease;
+      text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor;
+      transition: all 0.3s ease;
     }
 
     .gallery-box {
@@ -76,11 +81,14 @@
       box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), 0 0 80px rgba(1, 205, 254, 0.2);
       backdrop-filter: blur(8px);
       border: 2px solid rgba(255, 255, 255, 0.15);
-      position: relative;
     }
-    .swiper-button-next, .swiper-button-prev {
-      color: #ff71ce; text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff71ce;
+      text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe;
     }
+
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
       50% { box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1; }
@@ -88,19 +96,60 @@
     }
     .active-thumb img {
       box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1;
-      border: 2px solid #fff; border-radius: 8px; animation: pulseGlow 2s infinite ease-in-out;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      animation: pulseGlow 2s infinite ease-in-out;
     }
 
-    /* ====== Category Cards (auto-centered & larger) ====== */
+    .gradient-text {
+      font-weight: bold;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 60s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ff71ce;
+      text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe, 0 0 18px #05ffa1;
+    }
+
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    /* Only style links inside the Footer text box */
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: #ff71ce;
+      text-shadow: 0 0 6px #ff71ce;
+    }
+
+    /* ===== Category Cards (centered & larger, but stylistically neutral to your theme) ===== */
     #catGrid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center; /* auto-center rows */
       gap: 2rem;
     }
     .cat-card {
-      flex: 1 1 260px;   /* grow/shrink, min width */
-      max-width: 340px;  /* larger cap */
+      flex: 1 1 260px;    /* grow/shrink, min width */
+      max-width: 340px;   /* larger cap */
       background: rgba(0,0,0,0.55);
       border: 2px solid rgba(255,255,255,0.15);
       border-radius: 1.25rem;
@@ -152,8 +201,6 @@
       border: 1px solid rgba(255,255,255,.25);
       border-radius: .5rem;
     }
-
-    /* Back button */
     .back-btn {
       display: inline-flex; align-items: center; gap:.5rem;
       border: 1px solid rgba(255,255,255,0.25);
@@ -166,20 +213,6 @@
       box-shadow: 0 0 12px #ff71ce, 0 0 18px rgba(1,205,254,.4);
       color: #fff;
     }
-
-    .gradient-text {
-      font-weight: bold;
-      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
-      background-size: 400% 400%;
-      animation: gradientShift 60s ease infinite;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      color: #ff71ce;
-      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    }
-
-    footer { background:#111; padding:20px 0; text-align:center; font-size:.9rem; }
-    footer a { color:#fff; text-decoration: underline; }
-    footer a:hover { color:#ff71ce; text-shadow:0 0 6px #ff71ce; }
   </style>
 </head>
 <body>
@@ -208,9 +241,7 @@
 
   <!-- CATEGORY CARDS VIEW -->
   <div id="categoriesView" class="container py-4">
-    <div id="catGrid">
-      <!-- cards injected -->
-    </div>
+    <div id="catGrid"><!-- cards injected --></div>
   </div>
 
   <!-- SINGLE GALLERY VIEW -->
@@ -223,9 +254,7 @@
     <div class="gallery-box p-4 rounded-4">
       <!-- Main Swiper -->
       <div class="swiper mainSwiper mb-3">
-        <div class="swiper-wrapper" id="mainSwiperWrapper">
-          <!-- Slides injected -->
-        </div>
+        <div class="swiper-wrapper" id="mainSwiperWrapper"><!-- Slides injected --></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
@@ -261,10 +290,8 @@
   <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
   <script>
-    // ========= CONFIG =========
-    const BASE = 'https://shoeslug.netlify.app/gallery/images'; // /<folder>/imageN.jpg & /<folder>/resize/imageN.jpg
-
-    // Hardcoded categories (as requested)
+    /* ===== Config (hardcoded categories per your ask) ===== */
+    const BASE = 'https://shoeslug.netlify.app/gallery/images';
     const CATEGORIES = [
       { folder: 'inktober-2024', count: 31, desc: '31 days of ink—2024 edition' },
       { folder: 'category-2',    count: 10, desc: 'A second stream of vibes' },
@@ -272,11 +299,11 @@
       { folder: 'category-4',    count: 10, desc: 'Odds, ends, and experiments' }
     ];
 
-    // ========= STATE =========
+    /* ===== State ===== */
     let currentFolder = null;
     let mainSwiper = null;
 
-    // ========= HELPERS =========
+    /* ===== Helpers ===== */
     const el  = (sel) => document.querySelector(sel);
     const els = (sel) => Array.from(document.querySelectorAll(sel));
     const toTitleCase = (slug) => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -341,6 +368,7 @@
           }
         }
       });
+      // Match your original: pause autoplay while lightbox is open
       document.addEventListener('fsLightboxOpen', () => {
         if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
       });
@@ -360,9 +388,13 @@
 
     function refreshLightboxSafe() {
       if (typeof window.refreshFsLightbox === 'function') {
-        try { refreshFsLightbox(); } catch (e) { console.warn('FS LB refresh warn:', e); }
+        try { refreshFsLightbox(); } catch (e) { console.warn('FS Lightbox refresh warning:', e); }
       } else {
-        setTimeout(() => { if (typeof window.refreshFsLightbox === 'function') try { refreshFsLightbox(); } catch {} }, 0);
+        setTimeout(() => {
+          if (typeof window.refreshFsLightbox === 'function') {
+            try { refreshFsLightbox(); } catch {}
+          }
+        }, 0);
       }
     }
 
@@ -383,7 +415,7 @@
       return { folder, index };
     }
 
-    // ========= RENDERERS =========
+    /* ===== Renderers ===== */
     function renderCategoryCards() {
       const grid = el('#catGrid');
       grid.innerHTML = '';
@@ -437,7 +469,7 @@
       main.innerHTML = '';
       thumbs.innerHTML = '';
 
-      // slides
+      // slides (anchor for FS Lightbox, image inside)
       const lightboxKey = `gallery-${folder}`;
       let slidesHtml = '';
       images.forEach(({ full, alt }) => {
@@ -450,7 +482,7 @@
       });
       main.innerHTML = slidesHtml;
 
-      // thumbs
+      // thumbs (click to slideTo + smooth scroll)
       const frag = document.createDocumentFragment();
       images.forEach(({ thumb, full, alt }, i) => {
         const col = document.createElement('div');
@@ -474,18 +506,19 @@
       });
       thumbs.appendChild(frag);
 
-      // lightbox then swiper
+      // lightbox then swiper init (order matters)
       refreshLightboxSafe();
       initSwiper();
 
-      // initial index
+      // initial index clamp
       if (mainSwiper && typeof index === 'number') {
-        mainSwiper.slideToLoop(Math.min(Math.max(index, 0), images.length - 1), 0);
-        setActiveThumb(index);
+        const startAt = Math.min(Math.max(index, 0), images.length - 1);
+        mainSwiper.slideToLoop(startAt, 0);
+        setActiveThumb(startAt);
       }
     }
 
-    // ========= CONTROLLERS =========
+    /* ===== Controllers ===== */
     function openCategory(folder, index = 0) {
       showGalleryView();
       renderGallery(folder, index);
@@ -503,12 +536,12 @@
       }
     }
 
-    // ========= INIT =========
+    /* ===== Init ===== */
     document.addEventListener('DOMContentLoaded', () => {
-      // Back button
+      // Back
       el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
 
-      // Keyboard arrows only in gallery view
+      // Keyboard arrows only in gallery view (matches your original)
       document.addEventListener('keydown', (e) => {
         if (el('#galleryView').style.display === 'none') return;
         if (!mainSwiper) return;
@@ -529,7 +562,7 @@
         showCategoriesView();
       }
 
-      // React to external hash changes
+      // React to hash changes (optional external navigation)
       window.addEventListener('hashchange', () => {
         const d = parseHash();
         if (!d) { showCategoriesView(); return; }
