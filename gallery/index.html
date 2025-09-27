@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
   <title>Shoe Slug – Art Gallery</title>
+
+  <!-- Meta -->
   <meta name="description" content="Explore Shoe Slug's chaotic art gallery. Cosmic themes, pixel glitches, dreamy brushstrokes, and emotional visual noise." />
   <meta name="keywords" content="Shoe Slug art, vaporwave gallery, visual art, cosmic vibes, surrealism, glitchcore, digital art" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://shoeslug.netlify.app/gallery/" />
-
   <meta property="og:title" content="Shoe Slug – Art Gallery" />
   <meta property="og:description" content="Step into a dimension of neon brushstrokes and digital dreamscapes." />
   <meta property="og:image" content="https://shoeslug.netlify.app/og-image.jpg" />
   <meta property="og:url" content="https://shoeslug.netlify.app/gallery/" />
   <meta property="og:type" content="profile" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shoe Slug – Art Gallery" />
   <meta name="twitter:description" content="Visuals that melt the matrix. Explore Shoe Slug's art." />
   <meta name="twitter:image" content="https://shoeslug.netlify.app/og-image.jpg" />
-
   <link rel="icon" type="image/png" href="https://shoeslug.netlify.app/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="https://shoeslug.netlify.app/favicon.svg" />
   <link rel="shortcut icon" href="https://shoeslug.netlify.app/favicon.ico" />
@@ -27,11 +26,13 @@
   <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
   <link rel="manifest" href="https://shoeslug.netlify.app/site.webmanifest" />
 
+  <!-- Libs -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
+    /* ===== Your original vibe (restored) ===== */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -39,7 +40,6 @@
       animation: gradientShift 40s ease infinite;
       color: #fff;
     }
-
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -56,83 +56,31 @@
       color: #ff71ce; /* fallback for non-webkit */
       text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     }
-    .navbar-brand img {
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .navbar-brand img:hover {
-      transform: rotate(-10deg) scale(1.1);
-      filter: drop-shadow(0 0 4px #ff71ce);
-    }
+    .navbar-brand img { transition: transform 0.3s ease, filter 0.3s ease; }
+    .navbar-brand img:hover { transform: rotate(-10deg) scale(1.1); filter: drop-shadow(0 0 4px #ff71ce); }
 
-    /* Assign different colors to each nav item */
-    .navbar-nav > li:nth-child(1) > .nav-link {
-      color: #ff71ce !important; /* Pink – Home */
-    }
-    .navbar-nav > li:nth-child(2) > .nav-link {
-      color: #01cdfe !important; /* Blue – Music */
-    }
-    .navbar-nav > li:nth-child(3) > .nav-link {
-      color: #05ffa1 !important; /* Green – Videos */
-    }
-    .navbar-nav > li:nth-child(4) > .nav-link {
-      color: #b967ff !important; /* Purple – Gallery */
-    }
-    .navbar-nav > li:nth-child(5) > .nav-link {
-      color: #fffb96 !important; /* Yellow – About */
-    }
-    .navbar-nav > li:nth-child(6) > .nav-link {
-      color: #ff9966 !important; /* Orange – Contact */
-    }
+    /* Colored nav links + glow (exact nth-child mapping) */
+    .navbar-nav > li:nth-child(1) > .nav-link { color: #ff71ce !important; } /* Home */
+    .navbar-nav > li:nth-child(2) > .nav-link { color: #01cdfe !important; } /* Music */
+    .navbar-nav > li:nth-child(3) > .nav-link { color: #05ffa1 !important; } /* Videos */
+    .navbar-nav > li:nth-child(4) > .nav-link { color: #b967ff !important; } /* Gallery */
+    .navbar-nav > li:nth-child(5) > .nav-link { color: #fffb96 !important; } /* About */
+    .navbar-nav > li:nth-child(6) > .nav-link { color: #ff9966 !important; } /* Contact (if used) */
 
-    /* Optional: hover glow effect */
     .navbar-nav > li > .nav-link:hover {
       text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
       transition: all 0.3s ease;
     }
-
-    /* Glowing effect for active nav item */
     .navbar-nav .nav-link.active {
       text-shadow: 0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor;
       transition: all 0.3s ease;
     }
 
-    .gallery-title {
-      padding: 60px 0 20px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    .gallery-title h1 {
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .gallery {
-      padding: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .gallery a {
-      display: block;
-      width: 160px;
-      height: 160px;
-      overflow: hidden;
-      border: 2px solid #fff;
-      border-radius: 6px;
-      background: rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px #ff71ce;
-    }
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .gallery-box {
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), 0 0 80px rgba(1, 205, 254, 0.2);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 255, 255, 0.15);
     }
 
     .swiper-button-next,
@@ -141,26 +89,11 @@
       text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe;
     }
 
-    .thumbSwiper {
-      padding: 20px;
-    }
-
-    .thumbSwiper .swiper-slide-thumb-active img {
-      box-shadow:
-        0 0 8px #ff71ce,
-        0 0 12px #01cdfe,
-        0 0 16px #05ffa1;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
       50% { box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1; }
       100% { box-shadow: 0 0 8px #ff71ce, 0 0 12px #01cdfe, 0 0 16px #05ffa1; }
     }
-
     .active-thumb img {
       box-shadow: 0 0 12px #ff71ce, 0 0 18px #01cdfe, 0 0 24px #05ffa1;
       border: 2px solid #fff;
@@ -168,18 +101,6 @@
       animation: pulseGlow 2s infinite ease-in-out;
     }
 
-    .thumbSwiper .swiper-slide-thumb-active img {
-      animation: pulseGlow 2s infinite ease-in-out;
-    }
-
-    .gallery-box {
-      background: rgba(0, 0, 0, 0.4); /* transparent black */
-      box-shadow: 0 0 40px rgba(255, 113, 206, 0.4), 0 0 80px rgba(1, 205, 254, 0.2);
-      backdrop-filter: blur(8px);
-      border: 2px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* Gradient text for Connect section title */
     .gradient-text {
       font-weight: bold;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -191,21 +112,33 @@
       text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     }
 
-    /* Social icon style match */
     .social-icons a {
       margin: 0 10px;
       font-size: 1.5rem;
       color: #fff;
       transition: transform 0.3s ease, text-shadow 0.3s ease;
     }
-
     .social-icons a:hover {
       transform: scale(1.2);
       color: #ff71ce;
-      text-shadow:
-        0 0 6px #ff71ce,
-        0 0 12px #01cdfe,
-        0 0 18px #05ffa1;
+      text-shadow: 0 0 6px #ff71ce, 0 0 12px #01cdfe, 0 0 18px #05ffa1;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1; /* pushes #bottomBar down */
+    }
+
+    /* sticky bottom wrapper (connect + footer) */
+    #bottomBar {
+      margin-top: auto; /* locks it to the bottom */
+      background: #000; /* gives unified background */
     }
 
     footer {
@@ -213,18 +146,89 @@
       padding: 20px 0;
       text-align: center;
       font-size: 0.9rem;
-      /*opacity: 0.8;*/
     }
-
     /* Only style links inside the Footer text box */
     footer a {
       color: #fff;
       text-decoration: underline;
     }
-
     footer a:hover {
       color: #ff71ce;
       text-shadow: 0 0 6px #ff71ce;
+    }
+
+    /* ===== Category Cards (centered & larger, but stylistically neutral to your theme) ===== */
+    #catGrid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* auto-center rows */
+      gap: 2rem;
+    }
+    .cat-card {
+      flex: 1 1 260px;    /* grow/shrink, min width */
+      max-width: 340px;   /* larger cap */
+      background: rgba(0,0,0,0.55);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(1,205,254,0.15);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px #ff71ce, 0 0 30px rgba(1,205,254,0.4);
+    }
+    .cat-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .cat-body {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+    .cat-title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
+      background-size: 400% 400%;
+      animation: gradientShift 60s ease infinite;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      color: #ff71ce;
+    }
+    .cat-desc {
+      font-size: .95rem;
+      opacity: .85;
+      line-height: 1.25rem;
+    }
+    .cat-count {
+      align-self: flex-end;
+      font-size: .9rem;
+      opacity: .9;
+      padding: .2rem .6rem;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: .5rem;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap:.5rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.45);
+      padding: .5rem .9rem; border-radius: .75rem; color: #fff; text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px #ff71ce, 0 0 18px rgba(1,205,254,.4);
+      color: #fff;
     }
   </style>
 </head>
@@ -234,8 +238,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center gap-2" href="https://shoeslug.netlify.app/">
-      <img src="https://shoeslug.netlify.app/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
-      <span>Shoe Slug</span>
+        <img src="https://shoeslug.netlify.app/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
+        <span>Shoe Slug</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -243,46 +247,43 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/music/">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/music/">Music</a></li>
           <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/videos/">Videos</a></li>
           <li class="nav-item"><a class="nav-link active" href="https://shoeslug.netlify.app/gallery/">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="https://shoeslug.netlify.app/about/">About</a></li>
-          <!--<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>-->
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- GALLERY TITLE -->
-  <!--<div class="gallery-title">
-    <h1>🌸 Shoe Slug's Art Gallery</h1>
-  </div>-->
+  <!-- CATEGORY CARDS VIEW -->
+  <div id="categoriesView" class="container py-4">
+    <div id="catGrid"><!-- cards injected --></div>
+  </div>
 
-  <!-- Swiper Gallery -->
-  <div class="container py-4">
+  <!-- SINGLE GALLERY VIEW -->
+  <div id="galleryView" class="container py-4" style="display:none;">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <a href="#" class="back-btn" id="backBtn"><i class="bi bi-arrow-left"></i><span>Back to Categories</span></a>
+      <h2 class="m-0 gradient-text" id="galleryTitle"></h2>
+      <div style="width:152px;"></div>
+    </div>
     <div class="gallery-box p-4 rounded-4">
       <!-- Main Swiper -->
       <div class="swiper mainSwiper mb-3">
-        <div class="swiper-wrapper" id="mainSwiperWrapper">
-          <!-- Slides injected via JS -->
-        </div>
+        <div class="swiper-wrapper" id="mainSwiperWrapper"><!-- Slides injected --></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-
-      <div class="row g-2 pt-3 justify-content-center" id="thumbGridWrapper"></div>
-
-      <!-- Thumbnail Swiper -->
-      <!--<div class="swiper thumbSwiper">
-        <div class="swiper-wrapper" id="thumbSwiperWrapper">-->
-          <!-- Thumbs injected via JS -->
-        <!--</div>
-      </div>-->
+      <!-- Thumbs -->
+      <div class="row g-2 pt-2 justify-content-center" id="thumbGridWrapper"></div>
     </div>
   </div>
 
+  <!-- STICKY BOTTOM BAR -->
+  <div id="bottomBar">
     <!-- SOCIAL LINKS -->
-    <section class="py-5 bg-black text-center">
+    <section class="py-5 text-center">
       <div class="container">
         <h2 class="gradient-text mb-3">Connect with Me</h2>
         <div class="social-icons mt-3">
@@ -297,110 +298,298 @@
       </div>
     </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
+    </footer>
+  </div>
 
-  <!-- BOOTSTRAP & ICONS -->
+  <!-- JS libs -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- FS Lightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
-  <!-- Swiper Gallery Script -->
   <script>
-    const images = Array.from({ length: 31 }, (_, i) => ({
-      full: `https://shoeslug.netlify.app/gallery/images/image${i}.jpg`,
-      thumb: `https://shoeslug.netlify.app/gallery/images/resize/image${i}.jpg`,
-      alt: `Art ${i + 1}`
-    }));
+    /* ===== Config (hardcoded categories per your ask) ===== */
+    const BASE = 'https://shoeslug.netlify.app/gallery/images';
+    const CATEGORIES = [
+      { folder: 'inktober-2024', count: 31, desc: '31 days of ink—2024 edition' },
+      { folder: 'miscellaneous',    count: 06, desc: 'A second stream of vibes' },
+    //  { folder: 'category-3',    count: 01, desc: 'Abstract moods & color play' },
+    //  { folder: 'category-4',    count: 01, desc: 'Odds, ends, and experiments' }
+    ];
 
-    const mainWrapper = document.getElementById('mainSwiperWrapper');
-    const thumbGridWrapper = document.getElementById('thumbGridWrapper');
+    /* ===== State ===== */
+    let currentFolder = null;
+    let mainSwiper = null;
 
-    // Main image slides
-    images.forEach(({ full, alt }) => {
-      mainWrapper.innerHTML += `
-        <div class="swiper-slide">
-          <a data-fslightbox="gallery" href="${full}">
-            <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
-          </a>
-        </div>`;
-    });
+    /* ===== Helpers ===== */
+    const el  = (sel) => document.querySelector(sel);
+    const els = (sel) => Array.from(document.querySelectorAll(sel));
+    const toTitleCase = (slug) => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-    refreshFsLightbox();
+    function buildImagesFor(folder) {
+      if (folder === 'all') {
+        return CATEGORIES.flatMap(cat =>
+          Array.from({ length: cat.count }, (_, i) => ({
+            full:  `${BASE}/${cat.folder}/image${i}.jpg`,
+            thumb: `${BASE}/${cat.folder}/resize/image${i}.jpg`,
+            alt:   `${toTitleCase(cat.folder)} ${i + 1}`,
+          }))
+        );
+      }
+      const cat = CATEGORIES.find(c => c.folder === folder);
+      if (!cat) return [];
+      return Array.from({ length: cat.count }, (_, i) => ({
+        full:  `${BASE}/${folder}/image${i}.jpg`,
+        thumb: `${BASE}/${folder}/resize/image${i}.jpg`,
+        alt:   `${toTitleCase(folder)} ${i + 1}`,
+      }));
+    }
 
-    // Grid thumbnails with glow + click sync
-    images.forEach(({ thumb, full, alt }, i) => {
-      const col = document.createElement('div');
-      col.className = 'col-4 col-sm-3 col-md-2 col-lg-2';
-      const thumbId = `thumb-${i}`;
-      col.innerHTML = `
-        <a id="${thumbId}" href="${full}" title="${alt}">
-          <div class="zoom-thumb">
-            <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
-          </div>
-        </a>`;
-      const link = col.querySelector('a');
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        mainSwiper.slideToLoop(i, 500);
-        setActiveThumb(i);
+    function showCategoriesView() {
+      el('#categoriesView').style.display = '';
+      el('#galleryView').style.display = 'none';
+      currentFolder = null;
+      if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
+      history.replaceState(null, '', '#'); // clear hash
+    }
 
-        // Scroll smoothly to the top of the gallery box
-        const galleryBox = document.querySelector('.gallery-box');
-        const navbar = document.querySelector('.navbar');
-        if (galleryBox && navbar) {
-          const navbarHeight = navbar.offsetHeight;
-          const top = galleryBox.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-
-      thumbGridWrapper.appendChild(col);
-    });
+    function showGalleryView() {
+      el('#categoriesView').style.display = 'none';
+      el('#galleryView').style.display = '';
+    }
 
     function setActiveThumb(index) {
-      document.querySelectorAll('#thumbGridWrapper a').forEach(a => {
-        a.classList.remove('active-thumb');
-      });
-      const active = document.getElementById(`thumb-${index}`);
+      els('#thumbGridWrapper a').forEach(a => a.classList.remove('active-thumb'));
+      const active = el(`#thumb-${index}`);
       if (active) active.classList.add('active-thumb');
     }
 
-    const mainSwiper = new Swiper(".mainSwiper", {
-      spaceBetween: 10,
-      loop: true,
-      speed: 800,
-      autoplay: {
-        delay: 12000,
-        disableOnInteraction: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      on: {
-        init: function () {
-          setActiveThumb(this.realIndex);
-        },
-        slideChange: function () {
-          setActiveThumb(this.realIndex);
+    function initSwiper() {
+      if (!window.Swiper) { console.error('Swiper missing.'); return null; }
+      if (mainSwiper && typeof mainSwiper.destroy === 'function') {
+        try { mainSwiper.destroy(true, true); } catch {}
+      }
+      mainSwiper = new Swiper('.mainSwiper', {
+        spaceBetween: 10,
+        loop: true,
+        speed: 800,
+        autoplay: { delay: 12000, disableOnInteraction: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        on: {
+          init() {
+            setActiveThumb(this.realIndex);
+            maybeUpdateHash(currentFolder, this.realIndex);
+          },
+          slideChange() {
+            setActiveThumb(this.realIndex);
+            maybeUpdateHash(currentFolder, this.realIndex);
+          }
         }
+      });
+      // Match your original: pause autoplay while lightbox is open
+      document.addEventListener('fsLightboxOpen', () => {
+        if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
+      });
+      document.addEventListener('fsLightboxClose', () => {
+        if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.start();
+      });
+      return mainSwiper;
+    }
+
+    function smoothScrollToGalleryTop() {
+      const box = el('.gallery-box');
+      const navbar = el('.navbar');
+      if (!box || !navbar) return;
+      const top = box.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 6;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    function refreshLightboxSafe() {
+      if (typeof window.refreshFsLightbox === 'function') {
+        try { refreshFsLightbox(); } catch (e) { console.warn('FS Lightbox refresh warning:', e); }
+      } else {
+        setTimeout(() => {
+          if (typeof window.refreshFsLightbox === 'function') {
+            try { refreshFsLightbox(); } catch {}
+          }
+        }, 0);
       }
-    });
-    // Arrow key navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        mainSwiper.slideNext();
-      } else if (e.key === 'ArrowLeft') {
-        mainSwiper.slidePrev();
+    }
+
+    function maybeUpdateHash(folder, index) {
+      if (!folder) return;
+      const idxPart = (typeof index === 'number') ? `:${index}` : '';
+      const nextHash = `#${folder}${idxPart}`;
+      if (location.hash !== nextHash) {
+        try { history.replaceState(null, '', nextHash); } catch {}
       }
+    }
+
+    function parseHash() {
+      const raw = (location.hash || '').replace(/^#/, '').trim();
+      if (!raw) return null;
+      const [folder, idxRaw] = raw.split(':');
+      const index = Number.isFinite(+idxRaw) ? Math.max(0, +idxRaw) : null;
+      return { folder, index };
+    }
+
+    /* ===== Renderers ===== */
+    function renderCategoryCards() {
+      const grid = el('#catGrid');
+      grid.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      // Random cover for “All”
+      const randFolder = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+      const randIndex  = Math.floor(Math.random() * randFolder.count);
+      const randCover  = `${BASE}/${randFolder.folder}/resize/image${randIndex}.jpg`;
+
+      const total = CATEGORIES.reduce((sum,c)=>sum+c.count,0);
+      frag.appendChild(buildCard({
+        folder: 'all',
+        count: total,
+        desc: 'Every piece in one endless stream'
+      }, randCover));
+
+      // Real categories (covers use image0)
+      CATEGORIES.forEach(cat => {
+        const cover = `${BASE}/${cat.folder}/resize/image0.jpg`;
+        frag.appendChild(buildCard(cat, cover));
+      });
+
+      grid.appendChild(frag);
+    }
+
+    function buildCard({ folder, count, desc }, cover) {
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <div class="cat-card" data-folder="${folder}">
+          <img class="cat-cover" src="${cover}" alt="${toTitleCase(folder)} cover" loading="lazy">
+          <div class="cat-body">
+            <div>
+              <h3 class="cat-title">${toTitleCase(folder)}</h3>
+              <p class="cat-desc">${desc || ''}</p>
+            </div>
+            <span class="cat-count">(${count})</span>
+          </div>
+        </div>`;
+      wrap.querySelector('.cat-card').addEventListener('click', () => openCategory(folder, 0));
+      return wrap.firstElementChild;
+    }
+
+    function renderGallery(folder, index = 0) {
+      currentFolder = folder;
+      el('#galleryTitle').textContent = toTitleCase(folder);
+
+      const images = buildImagesFor(folder);
+      const main = el('#mainSwiperWrapper');
+      const thumbs = el('#thumbGridWrapper');
+      main.innerHTML = '';
+      thumbs.innerHTML = '';
+
+      // slides (anchor for FS Lightbox, image inside)
+      const lightboxKey = `gallery-${folder}`;
+      let slidesHtml = '';
+      images.forEach(({ full, alt }) => {
+        slidesHtml += `
+          <div class="swiper-slide">
+            <a data-fslightbox="${lightboxKey}" href="${full}">
+              <img src="${full}" loading="lazy" alt="${alt}" class="img-fluid rounded w-100" style="max-height: 70vh; object-fit: contain;" />
+            </a>
+          </div>`;
+      });
+      main.innerHTML = slidesHtml;
+
+      // thumbs (click to slideTo + smooth scroll)
+      const frag = document.createDocumentFragment();
+      images.forEach(({ thumb, full, alt }, i) => {
+        const col = document.createElement('div');
+        col.className = 'col-4 col-sm-3 col-md-2 col-lg-2';
+        col.innerHTML = `
+          <a id="thumb-${i}" href="${full}" title="${alt}">
+            <div class="zoom-thumb">
+              <img src="${thumb}" loading="lazy" alt="${alt}" class="img-fluid rounded shadow-sm" style="object-fit: cover;" />
+            </div>
+          </a>`;
+        col.querySelector('a').addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          if (mainSwiper && typeof mainSwiper.slideToLoop === 'function') {
+            mainSwiper.slideToLoop(i, 500);
+            setActiveThumb(i);
+            maybeUpdateHash(folder, i);
+            smoothScrollToGalleryTop();
+          }
+        });
+        frag.appendChild(col);
+      });
+      thumbs.appendChild(frag);
+
+      // lightbox then swiper init (order matters)
+      refreshLightboxSafe();
+      initSwiper();
+
+      // initial index clamp
+      if (mainSwiper && typeof index === 'number') {
+        const startAt = Math.min(Math.max(index, 0), images.length - 1);
+        mainSwiper.slideToLoop(startAt, 0);
+        setActiveThumb(startAt);
+      }
+    }
+
+    /* ===== Controllers ===== */
+    function openCategory(folder, index = 0) {
+      showGalleryView();
+      renderGallery(folder, index);
+      maybeUpdateHash(folder, index || 0);
+      smoothScrollToGalleryTop();
+    }
+
+    function handleBack() {
+      showCategoriesView();
+      const grid = el('#categoriesView');
+      const navbar = el('.navbar');
+      if (grid && navbar) {
+        const top = grid.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight - 6;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+
+    /* ===== Init ===== */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Back
+      el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
+
+      // Keyboard arrows only in gallery view (matches your original)
+      document.addEventListener('keydown', (e) => {
+        if (el('#galleryView').style.display === 'none') return;
+        if (!mainSwiper) return;
+        const tag = (e.target && e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+        if (e.key === 'ArrowRight') mainSwiper.slideNext();
+        else if (e.key === 'ArrowLeft') mainSwiper.slidePrev();
+      });
+
+      // Build cards
+      renderCategoryCards();
+
+      // Deep link on load
+      const deep = parseHash();
+      if (deep && (deep.folder === 'all' || CATEGORIES.some(c => c.folder === deep.folder))) {
+        openCategory(deep.folder, (typeof deep.index === 'number') ? deep.index : 0);
+      } else {
+        showCategoriesView();
+      }
+
+      // React to hash changes (optional external navigation)
+      window.addEventListener('hashchange', () => {
+        const d = parseHash();
+        if (!d) { showCategoriesView(); return; }
+        if (d.folder === 'all' || CATEGORIES.some(c => c.folder === d.folder)) {
+          openCategory(d.folder, (typeof d.index === 'number') ? d.index : 0);
+        }
+      });
     });
   </script>
 </body>
