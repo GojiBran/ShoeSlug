@@ -31,6 +31,13 @@
   <meta name="apple-mobile-web-app-title" content="Shoe Slug" />
   <link rel="manifest" href="https://shoeslug.com/site.webmanifest" />
 
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://shoeslug.com">
+  <link rel="dns-prefetch" href="https://i.imgur.com">
+  <link rel="dns-prefetch" href="https://open.spotify.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="preload" as="image" href="https://shoeslug.com/site_bannah.jpg" fetchpriority="high">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -353,7 +360,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center gap-2" href="https://shoeslug.com/">
-      <img src="https://shoeslug.com/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" style="image-rendering: crisp-edges;" />
+      <img src="https://shoeslug.com/favicon-96x96.png" alt="Shoe Slug Logo" width="32" height="32" decoding="async" style="image-rendering: crisp-edges;" />
       <span>Shoe Slug</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -421,6 +428,7 @@
             <iframe 
               src="https://www.youtube.com/embed/OVsq4lqn8qY" 
               title="Dirty Lovers - Shoe Slug" 
+              loading="lazy"
               allowfullscreen>
             </iframe>
           </div>
@@ -449,7 +457,7 @@
       <div class="col-12 col-md-4">
         <div class="card bg-dark text-white h-100">
           <a href="https://open.spotify.com/artist/24RpTxky0ibb9ixlyRcLCm" target="_blank">
-            <img src="https://i.imgur.com/fZW8DgK.jpeg" class="card-img-top" alt="Latest Tracks & Vibes">
+            <img src="https://i.imgur.com/fZW8DgK.jpeg" class="card-img-top" alt="Latest Tracks & Vibes" loading="lazy" decoding="async">
           </a>
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
@@ -467,7 +475,7 @@
       <div class="col-12 col-md-4">
         <div class="card bg-dark text-white h-100">
           <a href="https://shoeslug.com/gallery/">
-            <img src="https://i.imgur.com/HYWYz2t.jpeg" class="card-img-top" alt="Art Gallery">
+            <img src="https://i.imgur.com/HYWYz2t.jpeg" class="card-img-top" alt="Art Gallery" loading="lazy" decoding="async">
           </a>
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
@@ -482,7 +490,7 @@
       <div class="col-12 col-md-4">
         <div class="card bg-dark text-white h-100">
           <a href="https://shoeslug.com/about/">
-            <img src="https://i.imgur.com/3VZLgLx.jpeg" class="card-img-top" alt="Meet Shoe Slug">
+            <img src="https://i.imgur.com/3VZLgLx.jpeg" class="card-img-top" alt="Meet Shoe Slug" loading="lazy" decoding="async">
           </a>
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
@@ -508,12 +516,13 @@
     <p>&copy; 2026 <a href="mailto:2shoeslug@gmail.com">Shoe Slug</a>. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
   <script>
-    particlesJS("particles-js", {
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof particlesJS !== 'function') return;
+      particlesJS("particles-js", {
       "particles": {
         "number": {
           "value": 160,
@@ -588,6 +597,7 @@
         }
       },
       "retina_detect": true
+    });
     });
   </script>
 
