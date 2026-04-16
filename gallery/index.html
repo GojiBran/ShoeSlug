@@ -38,7 +38,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
-    /* ===== Your original vibe (restored) ===== */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: linear-gradient(-45deg, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96);
@@ -163,7 +162,7 @@
       text-shadow: 0 0 6px #ff71ce;
     }
 
-    /* ===== Category Cards (centered & larger, but stylistically neutral to your theme) ===== */
+    /* ===== Category Cards ===== */
     #catGrid {
       display: flex;
       flex-wrap: wrap;
@@ -316,7 +315,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
 
   <script>
-    /* ===== Config (hardcoded categories per your ask) ===== */
+    /* ===== Config (hardcoded categories) ===== */
     const BASE = 'https://shoeslug.com/gallery/images';
     const CATEGORIES = [
       { folder: 'inktober-2024', count: 31, desc: '31 days of doodles - 2024' },
@@ -395,7 +394,7 @@
           }
         }
       });
-      // Match your original: pause autoplay while lightbox is open
+      // Pause autoplay while lightbox is open
       document.addEventListener('fsLightboxOpen', () => {
         if (mainSwiper && mainSwiper.autoplay) mainSwiper.autoplay.stop();
       });
@@ -568,7 +567,7 @@
       // Back
       el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
 
-      // Keyboard arrows only in gallery view (matches your original)
+      // Keyboard arrows only in gallery view
       document.addEventListener('keydown', (e) => {
         if (el('#galleryView').style.display === 'none') return;
         if (!mainSwiper) return;
