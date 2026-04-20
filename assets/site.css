@@ -415,9 +415,12 @@ body[data-page="gallery"] .active-thumb img {
   animation: pulseGlow 2s infinite ease-in-out;
 }
 
-body[data-page="gallery"] html,
-body[data-page="gallery"] body {
+html,
+body[data-page="gallery"] {
   height: 100%;
+}
+
+body[data-page="gallery"] {
   margin: 0;
   display: flex;
   flex-direction: column;

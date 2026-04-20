@@ -316,7 +316,7 @@ function initGalleryPage() {
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function setupGallery() {
     el('#backBtn').addEventListener('click', (e) => { e.preventDefault(); handleBack(); });
 
     document.addEventListener('keydown', (e) => {
@@ -344,7 +344,13 @@ function initGalleryPage() {
         openCategory(d.folder, typeof d.index === 'number' ? d.index : 0);
       }
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupGallery);
+  } else {
+    setupGallery();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
