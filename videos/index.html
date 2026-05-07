@@ -50,6 +50,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
   <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/site.css">
+
+  <style>
+    .video-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease;
+    }
+
+    .video-card:hover {
+    transform: scale(1.02);
+    }
+
+    .video-card iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100" data-page="videos">
 
@@ -76,81 +96,89 @@
     </div>
   </nav>
 
-  <!-- VIDEO EMBEDS -->
-  <div class="container py-5 text-center">
-    <!-- RELEASE ALERT -->
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-          <strong>New Release!</strong> Listen to 
-          <a href="https://www.youtube.com/watch?v=yb4NJs47zZU" class="alert-link">Ring My Bell (Omnichord Cover w/Visualizer)</a>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <!--<h2 class="gradient-text mb-4">📺 Watch Shoe Slug 🎵</h2>-->
+<!-- VIDEO EMBEDS -->
+<div class="container py-5">
 
-      <!-- Ring My Bell (Omnichord Cover w/Visualizer) - Shoe Slug -->
-    <!-- <h2 class="gradient-text mb-4">Ring My Bell (Omnichord Cover w/Visualizer) - Shoe Slug</h2> -->
-      <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/yb4NJs47zZU"
-                    title="Ring My Bell (Omnichord Cover w/Visualizer) - Shoe Slug"
-                    loading="lazy"
-                    allowfullscreen
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
-      </div>
+  <!-- RELEASE ALERT -->
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>New Release!</strong> Listen to
+    <a href="https://www.youtube.com/watch?v=yb4NJs47zZU" class="alert-link">
+      Ring My Bell (Omnichord Cover w/Visualizer)
+    </a>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
 
-      <!-- no doffo - brokko piloot (ft. s100g) -->
-    <!-- <h2 class="gradient-text mb-4">no doffo - brokko piloot (ft. s100g)</h2> -->
-      <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/alplrMQzhCw?list=RDalplrMQzhCw"
-                    title="no doffo - brokko piloot (ft. s100g)"
-                    loading="lazy"
-                    allowfullscreen
-                    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
-      </div>
+  <div class="row g-4">
 
-      <!-- Shoe Slug Live on WMWM 91.7 6/19/18 (Bootleg Broadcast) -->
-    <!-- <h2 class="gradient-text mb-4">Shoe Slug Live on WMWM 91.7 6/19/18 (Bootleg Broadcast)</h2> -->
-      <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/hIrc25lYenM"
-                    title="Shoe Slug Live on WMWM 91.7 6/19/18 (Bootleg Broadcast)"                  
-                    loading="lazy"
-                    allowfullscreen
-                    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
-      </div>
-
-      <!-- Dirty Lovers – Shoe Slug -->
-    <!-- <h2 class="gradient-text mb-4">Dirty Lovers – Shoe Slug</h2> -->
-      <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/OVsq4lqn8qY"
-                    title="Dirty Lovers – Shoe Slug"
-                    loading="lazy"
-                    allowfullscreen
-                    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
-      </div>
-
-    <!-- More videos go here! -->
-    <!-- <h2 class="gradient-text mb-4">📺 Optional Title 🎵</h2> -->
-    <!-- <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/OVsq4lqn8qY"
-                  title="Dirty Lovers – Shoe Slug"
-                  loading="lazy"
-                  allowfullscreen
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    <!-- VIDEO -->
+    <div class="col-12 col-lg-6">
+      <div class="video-card">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/yb4NJs47zZU"
+            title="Ring My Bell (Omnichord Cover w/Visualizer) - Shoe Slug"
+            loading="lazy"
+            allowfullscreen>
           </iframe>
-    </div> -->
-  <!--</div>-->
+        </div>
+      </div>
+    </div>
 
+    <!-- VIDEO -->
+    <div class="col-12 col-lg-6">
+      <div class="video-card">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/alplrMQzhCw?list=RDalplrMQzhCw"
+            title="no doffo - brokko piloot (ft. s100g)"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
 
-  <!-- SUBSCRIBE CALL-TO-ACTION -->
-  <!--<div class="subscribe-cta mt-5 text-center">-->
-    <!--<h3 class="gradient-text mb-3">Love what you see?</h3>-->
-    <!--<p class="lead">Don’t miss the next video drop – smash that <strong>Subscribe</strong> button on YouTube!</p>-->
-    <a href="https://www.youtube.com/@shoeslug" target="_blank" class="btn btn-subscribe mt-3">
-      <i class="bi bi-bell-fill me-2"></i>Subscribe on YouTube
+    <!-- VIDEO -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="video-card">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/hIrc25lYenM"
+            title="Shoe Slug Live on WMWM 91.7 6/19/18"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="video-card">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/OVsq4lqn8qY"
+            title="Dirty Lovers – Shoe Slug"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUBSCRIBE BUTTON -->
+  <div class="text-center mt-5">
+    <a href="https://www.youtube.com/@shoeslug"
+       target="_blank"
+       class="btn btn-subscribe">
+      <i class="bi bi-bell-fill me-2"></i>
+      Subscribe on YouTube
     </a>
   </div>
+
+</div>
 
   <!-- CONNECT WITH ME SECTION -->
   <section class="text-center my-5 mt-auto">
