@@ -84,6 +84,7 @@ function initGalleryPage() {
   const CATEGORIES = [
     { folder: 'inktober-2024', count: 31, desc: '31 days of doodles - 2024' },
     { folder: 'inktober-2025', count: 31, desc: '31 days of doodles - 2025' },
+//    { folder: 'gulu-gulu-art-show-2026', count: 1, desc: 'Gulu Gulu Art Show November 2026' },
     { folder: 'miscellaneous', count: 6, desc: 'Random art collection' }
   ];
 
