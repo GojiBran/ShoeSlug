@@ -82,10 +82,10 @@ function initGalleryPage() {
   /* ===== Config (hardcoded categories) ===== */
   const BASE = 'https://shoeslug.com/gallery/images';
   const CATEGORIES = [
-    { folder: 'inktober-2024', count: 31, desc: '31 days of doodles - 2024' },
-    { folder: 'inktober-2025', count: 31, desc: '31 days of doodles - 2025' },
     { folder: 'art-show-2026', count: 32, desc: 'Gulu Gulu Art Show November 2026' },
-    { folder: 'miscellaneous', count: 6, desc: 'Random art collection' }
+    { folder: 'inktober-2025', count: 31, desc: '31 days of doodles - 2025' },
+    { folder: 'inktober-2024', count: 31, desc: '31 days of doodles - 2024' },
+    { folder: 'miscellaneous', count: 6, desc: 'Misc art collection' }
   ];
 
   /* ===== State ===== */
