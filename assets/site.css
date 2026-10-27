@@ -517,3 +517,28 @@ body[data-page="gallery"] .back-btn:hover {
   color: #fff;
 }
 
+/* ===== Gallery image captions ===== */
+body[data-page="gallery"] .gallery-caption {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 113, 206, 0.45);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 14px rgba(255, 113, 206, 0.12);
+  overflow-wrap: anywhere;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body[data-page="gallery"] .gallery-caption:hover {
+  border-color: rgba(1, 205, 254, 0.7);
+  box-shadow: 0 0 16px rgba(1, 205, 254, 0.2);
+}
+
+body[data-page="gallery"] .gallery-caption:empty {
+  display: none;
+}

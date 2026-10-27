@@ -88,9 +88,23 @@ function initGalleryPage() {
     { folder: 'miscellaneous', count: 6, desc: 'Misc art collection' }
   ];
 
+  /* ===== Custom artwork captions ===== */
+  // Image numbering starts at 0, matching the image filenames.
+  // Add captions here as you write them.
+  const CAPTIONS = {
+    'art-show-2026': {
+      // 0: 'Your caption for image0.jpg',
+      // 1: 'Your caption for image1.jpg',
+    },
+    'inktober-2025': {},
+    'inktober-2024': {},
+    'miscellaneous': {}
+  };
+
   /* ===== State ===== */
   let currentFolder = null;
   let mainSwiper = null;
+  let currentImages = [];
 
   /* ===== Helpers ===== */
   const el = (sel) => document.querySelector(sel);
@@ -100,20 +114,30 @@ function initGalleryPage() {
   function buildImagesFor(folder) {
     if (folder === 'all') {
       return CATEGORIES.flatMap((cat) =>
-        Array.from({ length: cat.count }, (_, i) => ({
-          full: `${BASE}/${cat.folder}/image${i}.jpg`,
-          thumb: `${BASE}/${cat.folder}/resize/image${i}.jpg`,
-          alt: `${toTitleCase(cat.folder)} ${i + 1}`
-        }))
+        Array.from({ length: cat.count }, (_, i) => {
+          const alt = `${toTitleCase(cat.folder)} ${i + 1}`;
+
+          return {
+            full: `${BASE}/${cat.folder}/image${i}.jpg`,
+            thumb: `${BASE}/${cat.folder}/resize/image${i}.jpg`,
+            alt,
+            caption: CAPTIONS[cat.folder]?.[i] || ''
+          };
+        })
       );
     }
     const cat = CATEGORIES.find((c) => c.folder === folder);
     if (!cat) return [];
-    return Array.from({ length: cat.count }, (_, i) => ({
-      full: `${BASE}/${folder}/image${i}.jpg`,
-      thumb: `${BASE}/${folder}/resize/image${i}.jpg`,
-      alt: `${toTitleCase(folder)} ${i + 1}`
-    }));
+    return Array.from({ length: cat.count }, (_, i) => {
+      const alt = `${toTitleCase(folder)} ${i + 1}`;
+
+      return {
+        full: `${BASE}/${folder}/image${i}.jpg`,
+        thumb: `${BASE}/${folder}/resize/image${i}.jpg`,
+        alt,
+        caption: CAPTIONS[folder]?.[i] || ''
+      };
+    });
   }
 
   function showCategoriesView() {
@@ -135,6 +159,21 @@ function initGalleryPage() {
     if (active) active.classList.add('active-thumb');
   }
 
+  function updateGalleryCaption(index) {
+    const captionEl = el('#galleryCaption');
+    if (!captionEl) return;
+
+    const image = currentImages[index];
+
+    if (!image) {
+      captionEl.textContent = '';
+      return;
+    }
+
+    captionEl.textContent =
+      image.caption || `${image.alt}`;
+  }
+
   function initSwiper() {
     if (!window.Swiper) return null;
     if (mainSwiper && typeof mainSwiper.destroy === 'function') {
@@ -149,10 +188,12 @@ function initGalleryPage() {
       on: {
         init() {
           setActiveThumb(this.realIndex);
+          updateGalleryCaption(this.realIndex);
           maybeUpdateHash(currentFolder, this.realIndex);
         },
         slideChange() {
           setActiveThumb(this.realIndex);
+          updateGalleryCaption(this.realIndex);
           maybeUpdateHash(currentFolder, this.realIndex);
         }
       }
@@ -247,7 +288,8 @@ function initGalleryPage() {
     currentFolder = folder;
     el('#galleryTitle').textContent = toTitleCase(folder);
 
-    const images = buildImagesFor(folder);
+    currentImages = buildImagesFor(folder);
+    const images = currentImages;
     const main = el('#mainSwiperWrapper');
     const thumbs = el('#thumbGridWrapper');
     main.innerHTML = '';
@@ -296,6 +338,7 @@ function initGalleryPage() {
       const startAt = Math.min(Math.max(index, 0), images.length - 1);
       mainSwiper.slideToLoop(startAt, 0);
       setActiveThumb(startAt);
+      updateGalleryCaption(startAt);
     }
   }
 
