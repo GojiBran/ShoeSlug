@@ -264,8 +264,9 @@ body[data-page="home"] #idle-game button {
   100% { box-shadow: 0 0 5px #05ffa1; }
 }
 
-body[data-page="home"] .card-img-top { transition: filter 0.3s ease, transform 0.3s ease; }
-body[data-page="home"] .card:hover .card-img-top { transform: scale(1.05); }
+/* body[data-page="home"] .card-img-top { transition: filter 0.3s ease, transform 0.3s ease; }
+body[data-page="home"] .card:hover .card-img-top { transform: scale(1.05); } */
+body[data-page="home"] .card:hover { transition: filter 0.3s ease, transform 0.3s ease; transform: scale(1.05); }
 
 /* ===== Music page ===== */
 body[data-page="music"] .spotify-embed { margin: 2rem auto; }
