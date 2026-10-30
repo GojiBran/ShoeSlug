@@ -93,38 +93,38 @@ function initGalleryPage() {
   // Add captions here as you write them.
   const CAPTIONS = {
     'art-show-2026': {
-      0: 'Cartoon Cells #7 (2023/2026). Acrylic paint and marker on 11x14 canvas.',
-      1: 'Cartoon Cells #6 (2023/2026). Acrylic paint and marker on 11x14 canvas.',
-      2: 'A Big Idea (2026). Acrylic paint, marker, glow paint and stickers on 11x14 canvas.',
-      3: 'Sweet Stefano (2020). Acrylic paint on 11x14 canvas.',
-      4: 'I Am Home (2017). Acrylic paint and marker on 11x14 canvas.',
-      5: 'Castle of Beans (2025/2026). Acrylic paint, marker and glitter paint on 11x14 canvas.',
-      6: 'One in the Universe (2017/2026). Acrylic paint and marker on 11x14 canvas.',
-      7: 'Cartoon Cells #8 (2024/2026). Acrylic paint and marker on 12x16 canvas.',
-      8: 'The Mighty Noom Noom (2022/2026). Acrylic paint and marker on 12x16 canvas.',
-      9: 'Fortune (2016). Acrylic paint on 8x10 canvas.',
-      10: 'Zippy (2022). Acrylic and glitter paint on 8x10 canvas.',
-      11: 'Meno the Moon Spirit (2026). Acrylic paint, marker and glitter paint on 8x10 canvas.',
-      12: 'Cartoon Cells #5 (2025/2026). Acrylic paint and marker on 11x14 canvas.',
-      13: 'Rat Gorl (2017/2026). Acrylic paint and marker on 16x20 canvas.',
-      14: 'Vee Vee (2026). Acrylic paint, marker and glitter paint on 16x20 canvas.',
-      15: 'Teef (2017). Acrylic paint and construction paper  on 14x20 cardboard.',
-      16: 'Barry the Big Bean (2017/ 2026). Acrylic paint and marker on 16x20 canvas.',
-      17: 'Pinot the Pigeon (2025). Acrylic paint on 18x24 canvas.',
-      18: 'Tito (2021/2026). Acrylic paint,  plastic gems and glitter paint on 18x24 canvas.',
-      19: 'Gorman (2026). Construction paper, acrylic paint and marker on 8x10 canvas.',
-      20: 'The Wise Guy (2026). Acrylic paint and marker on 8x10 canvas.',
-      21: 'Bits & Pieces (2021). Acrylic paint, sharpie and glitter paint on 8x8 canvas.',
-      22: 'Pio (2026). Construction paper, acrylic paint and marker on 6x8 canvas.',
-      23: 'Miss VI (2026). Construction paper, acrylic paint and marker on 6x8 canvas.',
-      24: 'Miss Tangerine (2026). Construction paper, acrylic paint and marker on 6x8 canvas.',
-      25: 'Cartoon Cells #4 (2026). Acrylic paint and marker on 5x7 canvas.',
-      26: 'Cartoon Cells #3 (2026). Acrylic paint and marker on 5x7 canvas.',
-      27: 'Pum Pum the Great (2022). Acrylic and glitter paint on 5x7 canvas.',
-      28: 'Cartoon Cells #2 (2026). Acrylic paint and marker on 5x7 canvas.',
-      29: 'Cartoon Cells #1 (2026). Acrylic paint and marker on 5x5 canvas.',
-      30: 'Dream Creatures (2026). Acrylic paint, marker and construction paper on 11x14 canvas. NFS, 5x7 prints available.',
-      31: 'Mr. Meow Meow (2026). Acrylic paint and marker on 18x24 canvas. NFS, 5x7 prints available.',
+      0: '<strong>Cartoon Cells #7 (2023/2026)</strong> <br>Acrylic paint and marker on 11x14 canvas.',
+      1: '<strong>Cartoon Cells #6 (2023/2026)</strong> <br>Acrylic paint and marker on 11x14 canvas.',
+      2: '<strong>A Big Idea (2026)</strong> <br>Acrylic paint, marker, glow paint and stickers on 11x14 canvas.',
+      3: '<strong>Sweet Stefano (2020)</strong> <br>Acrylic paint on 11x14 canvas.',
+      4: '<strong>I Am Home (2017)</strong> <br>Acrylic paint and marker on 11x14 canvas.',
+      5: '<strong>Castle of Beans (2025/2026)</strong> <br>Acrylic paint, marker and glitter paint on 11x14 canvas.',
+      6: '<strong>One in the Universe (2017/2026)</strong> <br>Acrylic paint and marker on 11x14 canvas.',
+      7: '<strong>Cartoon Cells #8 (2024/2026)</strong> <br>Acrylic paint and marker on 12x16 canvas.',
+      8: '<strong>The Mighty Noom Noom (2022/2026)</strong> <br>Acrylic paint and marker on 12x16 canvas.',
+      9: '<strong>Fortune (2016)</strong> <br>Acrylic paint on 8x10 canvas.',
+      10: '<strong>Zippy (2022)</strong> <br>Acrylic and glitter paint on 8x10 canvas.',
+      11: '<strong>Meno the Moon Spirit (2026)</strong> <br>Acrylic paint, marker and glitter paint on 8x10 canvas.',
+      12: '<strong>Cartoon Cells #5 (2025/2026)</strong> <br>Acrylic paint and marker on 11x14 canvas.',
+      13: '<strong>Rat Gorl (2017/2026)</strong> <br>Acrylic paint and marker on 16x20 canvas.',
+      14: '<strong>Vee Vee (2026)</strong> <br>Acrylic paint, marker and glitter paint on 16x20 canvas.',
+      15: '<strong>Teef (2017)</strong> <br>Acrylic paint and construction paper  on 14x20 cardboard.',
+      16: '<strong>Barry the Big Bean (2017/ 2026)</strong> <br>Acrylic paint and marker on 16x20 canvas.',
+      17: '<strong>Pinot the Pigeon (2025)</strong> <br>Acrylic paint on 18x24 canvas.',
+      18: '<strong>Tito (2021/2026)</strong> <br>Acrylic paint,  plastic gems and glitter paint on 18x24 canvas.',
+      19: '<strong>Gorman (2026)</strong> <br>Construction paper, acrylic paint and marker on 8x10 canvas.',
+      20: '<strong>The Wise Guy (2026)</strong> <br>Acrylic paint and marker on 8x10 canvas.',
+      21: '<strong>Bits & Pieces (2021)</strong> <br>Acrylic paint, sharpie and glitter paint on 8x8 canvas.',
+      22: '<strong>Pio (2026)</strong> <br>Construction paper, acrylic paint and marker on 6x8 canvas.',
+      23: '<strong>Miss VI (2026)</strong> <br>Construction paper, acrylic paint and marker on 6x8 canvas.',
+      24: '<strong>Miss Tangerine (2026)</strong> <br>Construction paper, acrylic paint and marker on 6x8 canvas.',
+      25: '<strong>Cartoon Cells #4 (2026)</strong> <br>Acrylic paint and marker on 5x7 canvas.',
+      26: '<strong>Cartoon Cells #3 (2026)</strong> <br>Acrylic paint and marker on 5x7 canvas.',
+      27: '<strong>Pum Pum the Great (2022)</strong> <br>Acrylic and glitter paint on 5x7 canvas.',
+      28: '<strong>Cartoon Cells #2 (2026)</strong> <br>Acrylic paint and marker on 5x7 canvas.',
+      29: '<strong>Cartoon Cells #1 (2026)</strong> <br>Acrylic paint and marker on 5x5 canvas.',
+      30: '<strong>Dream Creatures (2026)</strong> <br>Acrylic paint, marker and construction paper on 11x14 canvas. <em>NFS, 5x7 prints available.</em>',
+      31: '<strong>Mr. Meow Meow (2026)</strong> <br>Acrylic paint and marker on 18x24 canvas. <em>NFS, 5x7 prints available.</em>',
     },
     'inktober-2025': {},
     'inktober-2024': {},
@@ -189,20 +189,20 @@ function initGalleryPage() {
     if (active) active.classList.add('active-thumb');
   }
 
-  function updateGalleryCaption(index) {
-    const captionEl = el('#galleryCaption');
-    if (!captionEl) return;
+function updateGalleryCaption(index) {
+  const captionEl = el('#galleryCaption');
+  if (!captionEl) return;
 
-    const image = currentImages[index];
+  const image = currentImages[index];
 
-    if (!image) {
-      captionEl.textContent = '';
-      return;
-    }
-
-    captionEl.textContent =
-      image.caption || `${image.alt}`;
+  if (!image) {
+    captionEl.textContent = '';
+    return;
   }
+
+  captionEl.innerHTML =
+    image.caption || `${image.alt}`;
+}
 
   function initSwiper() {
     if (!window.Swiper) return null;
